@@ -1,0 +1,268 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Scheherazade New', serif;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Very light beige */
+    color: #333;
+}
+
+/* --- Header & Navigation --- */
+
+header {
+    background-color: #006400;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    /* Removed background image, added subtle gradient */
+    background: linear-gradient(135deg, #025e02, #004d00); /*Refined Gradient*/
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add a subtle shadow */
+    position: sticky; /* Make navigation sticky */
+    top: 0;
+    z-index: 100; /* Ensure it stays on top */
+}
+
+/* Language Selector Styles */
+.header-top {
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    padding: 0.5rem 1rem;
+    background-color: #025202; /* Slightly darker green for the top bar */
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.lang-btn.active {
+    font-weight: bold;
+    color: #f0e68c;
+}
+
+#masjid-name {
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Use flexbox for navigation */
+    justify-content: center; /* Center the navigation items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+nav ul li {
+    margin: 0.5rem 1rem; /* Add spacing around nav items */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent; /* For hover effect */
+    display: block; /* Make the whole area clickable */
+}
+
+nav a:hover {
+    color: #f0e68c; /* Gold color on hover */
+    border-bottom: 2px solid #f0e68c;
+}
+
+
+/* --- Home Section --- */
+
+#home {
+  padding-bottom: 2rem;
+}
+.hero {
+    background-image: ; /* Replace with your image! */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem; /* Increased padding */
+    position: relative;
+    z-index: 0;
+     border-radius: 0 0 15px 15px;  /*Rounded bottom borders*/
+    margin-bottom: 2rem; /* Add margin to separate from grid */
+
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    z-index: -1;
+    border-radius: 0 0 15px 15px;  /*Rounded bottom borders*/
+
+}
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm1-8h-2v2h2v-2zm0-4h-2v2h2v-2z'/%3E%3C/g%3E%3C/svg%3E"); /* Subtle Islamic Pattern */
+     z-index: -1; /* Behind the overlay */
+    border-radius: 0 0 15px 15px; /* Match hero rounding */
+
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 3.5rem;  /*Larger Heading*/
+    margin-bottom: 1rem;
+    font-family: 'Amiri', serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow */
+}
+
+.hero p {
+    font-size: 1.5rem; /*Larger Text*/
+    margin-bottom: 2rem;
+     text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add text shadow */
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px; /* Larger button */
+    background-color: #f0e68c; /* Gold button */
+    color: #006400;
+    text-decoration: none;
+    border-radius: 8px; /* More rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+    font-weight: bold; /* Make button text bolder */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Add a subtle shadow */
+}
+
+.button:hover {
+    background-color: #ffd700; /* Brighter gold on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More responsive grid */
+    gap: 2rem; /* Increased gap */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-grid-item {
+    background-color: white;
+    padding: 2rem; /* Increased padding */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Refined shadow */
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add transitions */
+}
+
+.home-grid-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.home-grid-item h3 {
+    font-size: 1.75rem; /* Increased heading size */
+    margin-bottom: 0.75rem;
+    font-family: 'Amiri', serif;
+    color: #006400; /* Use dark green for headings */
+}
+
+.home-grid-item p {
+    margin-bottom: 1rem;
+    color: #555; /* Slightly darker text for better contrast */
+}
+
+/* --- Other Sections --- */
+
+section {
+    padding: 3rem 1rem; /* Increased padding */
+    max-width: 1200px;
+    margin: 0 auto;
+     position: relative; /*For Pattern*/
+}
+
+section h2 {
+    font-size: 2.5rem; /* Larger section headings */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Amiri', serif;
+    color: #006400;
+}
+
+section p {
+    text-align: justify;
+    padding: 1rem;
+    color: #444;
+}
+
+/* --- Quran Section --- */
+#quran-container {
+    margin-top: 20px;
+    padding: 30px; /* More padding */
+    border: 2px solid #006400;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.quran-page-pattern{
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23006400' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41 2.83-2.83L3.41 31.76l1.42-1.42 2.82 2.82L8.4 27.53l-1.41-1.41-2.83 2.83 2.83 2.83-1.42 1.41L.58 35.76 2 37.17 0 38.59zM0 1.4l2.83 2.83 1.41-1.41L6.63 4l-2.82 2.83-1.42-1.42L.59 8.24l1.42 1.41 2.82-2.82L8.4 12.47l-1.41 1.41-2.83-2.83 2.83-2.83-1.42-1.41L.58 4.24 2 2.83 0 1.41zM12 27.46l14-14-1.41-1.41-14 14 1.41 1.41zm0-22l14 14-1.41 1.41-14-14 1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* Another subtle pattern */
+    z-index: 0; /* Behind the content */
+}
+#controls {
+    margin-bottom: 25px; /* More margin */
+    text-align: center;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center items */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+#controls select,
+#controls button {
+    padding: 10px 15px; /* Larger padding */
+    margin: 0.5rem; /* Consistent margin */
+    border: 1px solid #006400;
+    border-radius: 8px; /* More rounded corners */
+    background-color: white;
+    color: #006400;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem; /* Consistent font size */
+}
+#controls > * {
+    margin: 0.25rem;
+}
