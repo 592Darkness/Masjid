@@ -9,15 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="loading-indicator">Loading...</div>
+
     <header>
-         <div class="header-top">
+        <div class="header-top">
             <div class="language-selector">
                 <button data-lang="en" class="lang-btn active">English</button> |
                 <button data-lang="ar" class="lang-btn">العربية</button>
             </div>
         </div>
         <h1 id="masjid-name">
-            <span lang="ar" dir="rtl" class="ar">بَغُوتْفِيلْ مَسْجِد</span><br>
+            <span lang="ar" dir="rtl" class="ar">بَغُوتِْفِيلْ مَسْجِد</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
@@ -35,28 +37,30 @@
 
     <main>
         <section id="quran">
-             <div class="quran-page-pattern"></div>
-            <h2 class ="en">Read the Holy Quran</h2>
-            <h2 class = "ar" lang="ar" dir="rtl">اقرأ القرآن الكريم</h2>
+            <div class="quran-page-pattern"></div>
+            <h2 class="en">Read the Holy Quran</h2>
+            <h2 class="ar" lang="ar" dir="rtl">اقرأ القرآن الكريم</h2>
             <div id="quran-container">
                 <div id="controls">
-                    <label for="surah-select" class ="en">Select Surah:</label>
-                    <label for="surah-select" class = "ar" lang="ar" dir="rtl">اختر السورة</label>
+                    <label for="surah-select" class="en">Select Surah:</label>
+                    <label for="surah-select" class="ar" lang="ar" dir="rtl">اختر السورة</label>
                     <select id="surah-select"></select>
-                    <button id="prev-surah" class = "en">Previous Surah</button>
-                    <button id="prev-surah" class = "ar" lang="ar" dir="rtl">السورة السابقة</button>
-                    <button id="next-surah" class = "en">Next Surah</button>
-                    <button id="next-surah" class = "ar" lang="ar" dir="rtl">السورة التالية</button>
+                    <button id="prev-surah-btn-en" class="en">Previous Surah</button>
+                    <button id="prev-surah-btn-ar" class="ar" lang="ar" dir="rtl">السورة السابقة</button>
+                    <button id="next-surah-btn-en" class="en">Next Surah</button>
+                    <button id="next-surah-btn-ar" class="ar" lang="ar" dir="rtl">السورة التالية</button>
+                    <label for="ayah-select" class="en">Select Ayah:</label>
+                    <label for="ayah-select" class="ar" lang="ar" dir="rtl">اختر الآية</label>
+                    <select id="ayah-select"></select>
+                    <button id="prev-ayah-btn-en" class="en">Previous Ayah</button>
                 </div>
-                <div id="quran-text">
-
-                </div>
+                <div id="quran-text"></div>
             </div>
         </section>
     </main>
 
     <footer>
-       <p class="en">&copy; 2023 Bagotville Masjid. All rights reserved.</p>
+        <p class="en">&copy; 2023 Bagotville Masjid.  All rights reserved.</p>
         <p class="ar" lang="ar" dir="rtl">&copy; 2023 مسجد باغوتفيل. كل الحقوق محفوظة.</p>
     </footer>
 

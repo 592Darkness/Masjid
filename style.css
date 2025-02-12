@@ -94,7 +94,7 @@ nav a:hover {
   padding-bottom: 2rem;
 }
 .hero {
-    background-image: ; /* Replace with your image! */
+    background-image: url('masjid-image.png'); /* Replace with your image! */
     background-size: cover;
     background-position: center;
     color: white;
@@ -146,7 +146,7 @@ nav a:hover {
 .hero p {
     font-size: 1.5rem; /*Larger Text*/
     margin-bottom: 2rem;
-     text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add text shadow */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add text shadow */
 }
 
 .button {
@@ -266,3 +266,194 @@ section p {
 #controls > * {
     margin: 0.25rem;
 }
+
+#controls button:hover,
+#controls select:hover {
+    background-color: #006400;
+    color: white;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+#quran-text {
+    font-size: 1.6rem;
+    line-height: 2.5;
+    direction: rtl;
+    font-family: 'Amiri', serif;
+    padding: 20px;
+    text-align: justify;
+}
+
+#quran-text p {
+    margin-bottom: 1.75rem;
+}
+
+/* --- About Section --- */
+
+#about {
+    background-color: #f5f5f5; /* Slightly different background */
+    border-radius: 15px;
+    padding: 3rem; /* More padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Prayer Times Section --- */
+#prayer-times-table {
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto; /* Add horizontal scroll on small screens */
+}
+#prayer-times-table table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+#prayer-times-table th,
+#prayer-times-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#prayer-times-table th {
+    background-color: #006400;
+    color: white;
+     border-radius: 8px;
+}
+
+#prayer-times-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#prayer-times-table tr{
+     border-radius: 8px;
+}
+
+/* --- Events Section --- */
+.event-list {
+    display: grid;
+    gap: 1.5rem; /* Add gap between event items */
+}
+
+.event {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.event h3 {
+     font-family: 'Amiri', serif;
+     color: #006400;
+     margin-bottom:0.5rem;
+}
+
+/* --- Contact Section --- */
+#contact {
+   background-color: #f5f5f5; /* Slightly different background */
+    border-radius: 15px;
+    padding: 3rem; /* More padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Use flexbox for social links */
+    justify-content: center; /* Center the links */
+    margin-top: 1rem;
+}
+
+.social-links li {
+    margin: 0 1rem;
+}
+
+.social-links a {
+    color: #006400;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #004d00;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #006400;
+    color: white;
+    padding: 1.5rem; /* Increased padding */
+    text-align: center;
+    font-size: 0.9rem; /* Slightly smaller font size */
+}
+
+/* --- Responsive Design --- */
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack navigation items */
+        align-items: center; /* Center items vertically */
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Adjust margin for stacked items */
+    }
+     header {
+        padding: 0.75rem; /* Reduce header padding */
+    }
+
+    #controls {
+        flex-direction: column;
+    }
+
+    #masjid-name {
+        font-size: 1.8rem;
+    }
+
+    #quran-text {
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 2rem 1rem; /* Reduce section padding */
+    }
+
+    .home-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    #about, #contact {
+        padding: 2rem; /*Reduce Padding*/
+    }
+     .hero{
+         padding: 4rem 1rem;
+         margin-bottom:1rem;
+     }
+     .event-list{
+        grid-template-columns: 1fr;
+     }
+}
+
+/* --- Language Switching Styles --- */
+
+.ar, .en { /*  Hide BOTH by default */
+    display: none;
+}
+[dir="rtl"] {
+    direction: rtl;
+}
+.quran-page-pattern, .hero-pattern {
+    opacity: 0.5;
+}
+#loading-indicator {
+        display:none;
+    }
