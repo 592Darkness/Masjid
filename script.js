@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const surahSelect = document.getElementById('surah-select');
+    const ayahSelect = document.getElementById('ayah-select');
     const quranText = document.getElementById('quran-text');
-    const prevSurahBtnEn = document.querySelectorAll('[id="prev-surah-btn-en"]');
-    const prevSurahBtnAr = document.querySelectorAll('[id="prev-surah-btn-ar"]');
-    const nextSurahBtnEn = document.querySelectorAll('[id="next-surah-btn-en"]');
-    const nextSurahBtnAr = document.querySelectorAll('[id="next-surah-btn-ar"]');
+    const prevSurahBtn = document.getElementById('prev-surah-bten');
+    const nextSurahBtn = document.getElementById('next-surah-bten');
+    const prevAyahBtn = document.getElementById('prev-ayah-bten');
+    const nextAyahBtn = document.getElementById('next-ayah-bten');
     const languageButtons = document.querySelectorAll('.lang-btn');
+    const loadingIndicator = document.getElementById('loading-indicator');
 
     let currentSurah = 1;
+    let currentAyah = 1;
+    let currentVerses = [];
 
     // --- Language Switching ---
     function switchLanguage(lang) {
@@ -35,8 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        localStorage.setItem('language', lang); // Save preference
+        localStorage.setItem('language', lang);
+        // Redisplay the current ayah to update text direction and content
+        if (currentVerses.length > 0) {
+            displayAyah(currentAyah);
+        }
     }
+
 
     languageButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -45,9 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- API Functions ---
-    async function fetchQuranData(surahNumber) {
+    async function fetchQuranData(surahNumber, ayahNumber = null) {
+        loadingIndicator.style.display = 'block';
         try {
             const url = `https://api.quran.com/api/v4/verses/by_chapter/${surahNumber}?language=en&words=true&translations=131`;
+
+            if (ayahNumber) {
+                url = `https://api.quran.com/api/v4/verses/by_key/${surahNumber}:${ayahNumber}?language=en&words=true&translations=131`;
+            }
             const response = await fetch(url);
 
             if (!response.ok) {
@@ -55,19 +68,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = await response.json();
-
-            if (!data ||!data.verses) {
+            const verses = data.verses || (data.verse ? [data.verse] : null);
+            if (!verses || verses.length === 0) {
                 throw new Error("Invalid data received from API (no verses).");
             }
-
             return data.verses;
 
         } catch (error) {
             console.error("Error fetching Quran data:", error);
             quranText.textContent = `Failed to load Quran data: ${error.message}`;
-            return;
+            return [];
+
+        } finally {
+            loadingIndicator.style.display = 'none';
         }
     }
+
 
     async function fetchSurahList() {
         try {
@@ -79,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            if (!data ||!data.chapters) {
+            if (!data || !data.chapters) {
                 throw new Error("Invalid data received from API (no chapters).");
             }
             return data.chapters;
@@ -87,115 +103,159 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error("Error fetching Surah list:", error);
             quranText.textContent = `Failed to load Surah list: ${error.message}`;
-            return;
+            return [];
         }
     }
 
+
     async function populateSurahSelect() {
         const surahs = await fetchSurahList();
-        if (surahs && surahs.length > 0) {
+        if (surahs.length > 0) {
             surahs.forEach(surah => {
                 const option = document.createElement('option');
                 option.value = surah.id;
                 option.textContent = `${surah.id}. ${surah.name_simple} (${surah.name_arabic})`;
                 surahSelect.appendChild(option);
             });
-            // Trigger change event to load initial Surah.
+            surahSelect.value = currentSurah;
             surahSelect.dispatchEvent(new Event('change'));
         } else {
             quranText.textContent = "No Surahs found.";
         }
     }
 
-    async function displayFullSurah(surahNumber) {
-        const verses = await fetchQuranData(surahNumber);
-
-        if (verses && verses.length > 0) {
-            let html = '';
-            verses.forEach(verse => {
-                html += '<p>';
-                if (verse.words && Array.isArray(verse.words)) {
-                    verse.words.forEach(word => {
-                        const wordText = word.text || word.transliteration?.text || word.code || word.word || "???";
-                        const translationText = word.translation?.text || "";
-                        html += `<span title="${translationText}">${wordText}</span> `;
-                    });
-                } else {
-                    console.warn("Verse is missing 'words' array:", verse);
-                    html += '<span>[Missing Word Data]</span>';
-                }
-                html += ` (${verse.verse_key})</p>`;
-            });
-            quranText.innerHTML = html;
-            currentSurah = surahNumber; // Update currentSurah
-        } else {
-            quranText.textContent = "No verses found for this Surah."; // Handle empty Surahs
+    // --- Display Functions ---
+    async function displaySurah(surahNumber) {
+        currentVerses = await fetchQuranData(surahNumber);
+        if (currentVerses) {
+            populateAyahSelect(currentVerses);
+            displayAyah(1);
         }
     }
 
-    // --- Event Listeners ---
 
-    if (surahSelect) {
-        surahSelect.addEventListener('change', (event) => {
-            displayFullSurah(parseInt(event.target.value, 10));
+    function displayAyah(ayahNumber) {
+        const verse = currentVerses.find(v => v.verse_number === ayahNumber);
+        if (verse) {
+            let html = `<p data-ayah="${verse.verse_number}" dir="${document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr'}">`; // Add data-ayah
+
+            if (verse.words && Array.isArray(verse.words)) {
+                verse.words.forEach(word => {
+                    const wordText = word.text_uthmani || word.transliteration?.text || word.code || word.word || "???"; // Prioritize Uthmani
+                    const translationText = word.translation?.text || "";
+					// Add word-id for easier selection
+                    html += `<span data-word-id="${word.id}" title="${translationText}">${wordText}</span> `;
+                });
+            } else {
+                console.warn("Verse is missing 'words' array:", verse);
+                html += '<span>[Missing Word Data]</span>';
+            }
+            html += ` (${verse.verse_key})</p>`;
+            quranText.innerHTML = html;
+            currentAyah = ayahNumber;
+            ayahSelect.value = currentAyah;
+
+        } else {
+            quranText.textContent = "Ayah not found.";
+        }
+    }
+
+
+    function populateAyahSelect(verses) {
+        ayahSelect.innerHTML = '';
+        verses.forEach(verse => {
+            const option = document.createElement('option');
+            option.value = verse.verse_number;
+            option.textContent = verse.verse_number;
+            ayahSelect.appendChild(option);
         });
     }
 
-    // Add event listeners to all 'prev-surah-btn-en' buttons
-    prevSurahBtnEn.forEach(btn => {
-        btn.addEventListener('click', () => {
+
+    // --- Event Listeners ---
+
+    surahSelect.addEventListener('change', (event) => {
+        displayFullSurah(parseInt(event.target.value, 10));
+    });
+
+    ayahSelect.addEventListener('change', (event) => {
+        displayAyah(parseInt(event.target.value, 10));
+    });
+
+    if (prevSurahBtnEn) {
+        prevSurahBtnEn.addEventListener('click', () => {
             if (currentSurah > 1) {
                 currentSurah--;
                 surahSelect.value = currentSurah;
                 surahSelect.dispatchEvent(new Event('change'));
             }
         });
-    });
+    }
 
-    // Add event listeners to all 'prev-surah-btn-ar' buttons
-    prevSurahBtnAr.forEach(btn => {
-        btn.addEventListener('click', () => {
+    if (prevSurahBtnAr) {
+        prevSurahBtnAr.addEventListener('click', () => {
             if (currentSurah > 1) {
                 currentSurah--;
                 surahSelect.value = currentSurah;
                 surahSelect.dispatchEvent(new Event('change'));
             }
         });
-    });
+    }
 
-    // Add event listeners to all 'next-surah-btn-en' buttons
-    nextSurahBtnEn.forEach(btn => {
-        btn.addEventListener('click', () => {
+    if (nextSurahBtnEn) {
+        nextSurahBtnEn.addEventListener('click', () => {
             if (currentSurah < 114) {
                 currentSurah++;
                 surahSelect.value = currentSurah;
                 surahSelect.dispatchEvent(new Event('change'));
             }
         });
-    });
+    }
 
-    // Add event listeners to all 'next-surah-btn-ar' buttons
-    nextSurahBtnAr.forEach(btn => {
-        btn.addEventListener('click', () => {
+    if (nextSurahBtnAr) {
+        nextSurahBtnAr.addEventListener('click', () => {
             if (currentSurah < 114) {
                 currentSurah++;
                 surahSelect.value = currentSurah;
                 surahSelect.dispatchEvent(new Event('change'));
             }
         });
+    }
+
+    prevAyahBtn.addEventListener('click', () => {
+        if (currentAyah > 1) {
+            displayAyah(currentAyah - 1);
+        }
     });
+
+    nextAyahBtn.addEventListener('click', () => {
+        const nextAyah = currentAyah + 1;
+        if (currentVerses.find(v => v.verse_number === nextAyah)) {
+            displayAyah(nextAyah);
+        }
+    });
+
+    // Event Delegation for word clicks
+    quranText.addEventListener('click', (event) => {
+        if (event.target.tagName === 'SPAN' && event.target.hasAttribute('data-word-id')) {
+            const wordId = event.target.dataset.wordId;
+            const word = currentVerses.flatMap(v => v.words).find(w => w.id == wordId); // Use flatMap
+
+            if (word) {
+                // Example: Display an alert with the word's translation.
+                alert(`Translation: ${word.translation.text}`);
+                // You could do more here:  play audio, show a modal, etc.
+            }
+        }
+    });
+
 
     // --- Initial Setup ---
     populateSurahSelect();
-
-    // Load saved language preference
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage) {
         switchLanguage(savedLanguage);
     } else {
-        switchLanguage('en'); // Default to English
+        switchLanguage('en');
     }
-
-    document.getElementById('loading-indicator').style.display = 'none'; // Hide loading indicator
-
 });

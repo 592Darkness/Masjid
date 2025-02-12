@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="loading-indicator">Loading...</div>
+    <div id="loading-indicator" style="text-align: center;">Loading...</div>
 
     <header>
         <div class="header-top">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <h1 id="masjid-name">
-            <span lang="ar" dir="rtl" class="ar">بَغُوتِْفِيلْ مَسْجِد</span><br>
+            <span lang="ar" dir="rtl" class="ar">بَغُوتِْفِيلْ مَسْجِد</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
@@ -43,16 +43,22 @@
             <div id="quran-container">
                 <div id="controls">
                     <label for="surah-select" class="en">Select Surah:</label>
-                    <label for="surah-select" class="ar" lang="ar" dir="rtl">اختر السورة</label>
+                    <label for="surah-select-ar" class="ar" lang="ar" dir="rtl">اختر السورة</label>
                     <select id="surah-select"></select>
-                    <button id="prev-surah-btn-en" class="en">Previous Surah</button>
-                    <button id="prev-surah-btn-ar" class="ar" lang="ar" dir="rtl">السورة السابقة</button>
-                    <button id="next-surah-btn-en" class="en">Next Surah</button>
-                    <button id="next-surah-btn-ar" class="ar" lang="ar" dir="rtl">السورة التالية</button>
+
+                    <button id="prev-surah-bten" class="en">Previous Surah</button>
+                    <button id="prev-surah-btar" class="ar" lang="ar" dir="rtl">السورة السابقة</button>
+                    <button id="next-surah-bten" class="en">Next Surah</button>
+                    <button id="next-surah-btar" class="ar" lang="ar" dir="rtl">السورة التالية</button>
+
                     <label for="ayah-select" class="en">Select Ayah:</label>
-                    <label for="ayah-select" class="ar" lang="ar" dir="rtl">اختر الآية</label>
+                    <label for="ayah-select-ar" class="ar" lang="ar" dir="rtl">اختر الآية</label>
                     <select id="ayah-select"></select>
-                    <button id="prev-ayah-btn-en" class="en">Previous Ayah</button>
+
+                    <button id="prev-ayah-bten" class="en">Previous Ayah</button>
+                    <button id="prev-ayah-btar" class="ar" lang="ar" dir="rtl">الآية السابقة</button>
+                    <button id="next-ayah-bten" class="en">Next Ayah</button>
+                    <button id="next-ayah-btar" class="ar" lang="ar" dir="rtl">الآية التالية</button>
                 </div>
                 <div id="quran-text"></div>
             </div>

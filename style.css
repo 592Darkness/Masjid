@@ -8,39 +8,30 @@
 body {
     font-family: 'Scheherazade New', serif;
     line-height: 1.6;
-    background-color: #f9f9f9; /* Very light beige */
+    background-color: #f9f9f9;
     color: #333;
 }
 
 /* --- Header & Navigation --- */
-
 header {
     background-color: #006400;
     color: white;
     padding: 1rem;
     text-align: center;
-    /* Removed background image, added subtle gradient */
-    background: linear-gradient(135deg, #025e02, #004d00); /*Refined Gradient*/
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add a subtle shadow */
-    position: sticky; /* Make navigation sticky */
+    background: linear-gradient(135deg, #025e02, #004d00);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
     top: 0;
-    z-index: 100; /* Ensure it stays on top */
-}
-
-/* Language Selector Styles */
-.header-top {
+    z-index: 100;
+}.header-top {
     display: flex;
-    justify-content: flex-end; /* Align to the right */
+    justify-content: flex-end;
     padding: 0.5rem 1rem;
-    background-color: #025202; /* Slightly darker green for the top bar */
-}
-
-.language-selector {
+    background-color: #025202;
+}.language-selector {
     display: flex;
     align-items: center;
-}
-
-.lang-btn {
+}.lang-btn {
     background: none;
     border: none;
     color: white;
@@ -48,9 +39,7 @@ header {
     padding: 0.25rem 0.5rem;
     font-size: 1rem;
     transition: color 0.3s ease;
-}
-
-.lang-btn.active {
+}.lang-btn.active {
     font-weight: bold;
     color: #f0e68c;
 }
@@ -64,13 +53,13 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
-    display: flex; /* Use flexbox for navigation */
-    justify-content: center; /* Center the navigation items */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin: 0.5rem 1rem; /* Add spacing around nav items */
+    margin: 0.5rem 1rem;
 }
 
 nav a {
@@ -78,140 +67,110 @@ nav a {
     text-decoration: none;
     transition: color 0.3s ease, border-bottom 0.3s ease;
     padding: 0.25rem 0;
-    border-bottom: 2px solid transparent; /* For hover effect */
-    display: block; /* Make the whole area clickable */
+    border-bottom: 2px solid transparent;
+    display: block;
 }
 
 nav a:hover {
-    color: #f0e68c; /* Gold color on hover */
+    color: #f0e68c;
     border-bottom: 2px solid #f0e68c;
 }
 
-
 /* --- Home Section --- */
-
 #home {
-  padding-bottom: 2rem;
-}
-.hero {
-    background-image: url('masjid-image.png'); /* Replace with your image! */
+    padding-bottom: 2rem;
+}.hero {
+    background-image: url('masjid-image.png');
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
-    padding: 6rem 2rem; /* Increased padding */
+    padding: 6rem 2rem;
     position: relative;
     z-index: 0;
-     border-radius: 0 0 15px 15px;  /*Rounded bottom borders*/
-    margin-bottom: 2rem; /* Add margin to separate from grid */
-
-}
-
-.hero::before {
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 2rem;
+}.hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
-    border-radius: 0 0 15px 15px;  /*Rounded bottom borders*/
-
-}
-.hero-pattern {
+    border-radius: 0 0 15px 15px;
+}.hero-pattern {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm1-8h-2v2h2v-2zm0-4h-2v2h2v-2z'/%3E%3C/g%3E%3C/svg%3E"); /* Subtle Islamic Pattern */
-     z-index: -1; /* Behind the overlay */
-    border-radius: 0 0 15px 15px; /* Match hero rounding */
-
-}
-
-.hero-content {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm1-8h-2v2h2v-2zm0-4h-2v2h2v-2z'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1;
+    border-radius: 0 0 15px 15px;
+}.hero-content {
     max-width: 800px;
     margin: 0 auto;
-}
-
-.hero h2 {
-    font-size: 3.5rem;  /*Larger Heading*/
+}.hero h2 {
+    font-size: 3.5rem;
     margin-bottom: 1rem;
     font-family: 'Amiri', serif;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow */
-}
-
-.hero p {
-    font-size: 1.5rem; /*Larger Text*/
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}.hero p {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add text shadow */
-}
-
-.button {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}.button {
     display: inline-block;
-    padding: 12px 25px; /* Larger button */
-    background-color: #f0e68c; /* Gold button */
+    padding: 12px 25px;
+    background-color: #f0e68c;
     color: #006400;
     text-decoration: none;
-    border-radius: 8px; /* More rounded corners */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
-    font-weight: bold; /* Make button text bolder */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Add a subtle shadow */
-}
-
-.button:hover {
-    background-color: #ffd700; /* Brighter gold on hover */
-    transform: translateY(-2px); /* Slight upward movement on hover */
-}
-
-.home-grid {
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}.button:hover {
+    background-color: #ffd700;
+    transform: translateY(-2px);
+}.home-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More responsive grid */
-    gap: 2rem; /* Increased gap */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.home-grid-item {
+}.home-grid-item {
     background-color: white;
-    padding: 2rem; /* Increased padding */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Refined shadow */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add transitions */
-}
-
-.home-grid-item:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}.home-grid-item:hover {
+    transform: translateY(-5px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.home-grid-item h3 {
-    font-size: 1.75rem; /* Increased heading size */
+}.home-grid-item h3 {
+    font-size: 1.75rem;
     margin-bottom: 0.75rem;
     font-family: 'Amiri', serif;
-    color: #006400; /* Use dark green for headings */
-}
-
-.home-grid-item p {
+    color: #006400;
+}.home-grid-item p {
     margin-bottom: 1rem;
-    color: #555; /* Slightly darker text for better contrast */
+    color: #555;
 }
 
 /* --- Other Sections --- */
-
 section {
-    padding: 3rem 1rem; /* Increased padding */
+    padding: 3rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
-     position: relative; /*For Pattern*/
+    position: relative;
 }
 
 section h2 {
-    font-size: 2.5rem; /* Larger section headings */
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
     font-family: 'Amiri', serif;
@@ -227,43 +186,44 @@ section p {
 /* --- Quran Section --- */
 #quran-container {
     margin-top: 20px;
-    padding: 30px; /* More padding */
+    padding: 30px;
     border: 2px solid #006400;
     border-radius: 15px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.quran-page-pattern{
-   position: absolute;
+}.quran-page-pattern {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23006400' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41 2.83-2.83L3.41 31.76l1.42-1.42 2.82 2.82L8.4 27.53l-1.41-1.41-2.83 2.83 2.83 2.83-1.42 1.41L.58 35.76 2 37.17 0 38.59zM0 1.4l2.83 2.83 1.41-1.41L6.63 4l-2.82 2.83-1.42-1.42L.59 8.24l1.42 1.41 2.82-2.82L8.4 12.47l-1.41 1.41-2.83-2.83 2.83-2.83-1.42-1.41L.58 4.24 2 2.83 0 1.41zM12 27.46l14-14-1.41-1.41-14 14 1.41 1.41zm0-22l14 14-1.41 1.41-14-14 1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* Another subtle pattern */
-    z-index: 0; /* Behind the content */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23006400' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41 2.83-2.83L3.41 31.76l1.42-1.42 2.82 2.82L8.4 27.53l-1.41-1.41-2.83 2.83 2.83 2.83-1.42 1.41L.58 35.76 2 37.17 0 38.59zM0 1.4l2.83 2.83 1.41-1.41L6.63 4l-2.82 2.83-1.42-1.42L.59 8.24l1.42 1.41 2.82-2.82L8.4 12.47l-1.41 1.41-2.83-2.83 2.83-2.83-1.42-1.41L.58 4.24 2 2.83 0 1.41zM12 27.46l14-14-1.41-1.41-14 14 1.41 1.41zm0-22l14 14-1.41 1.41-14-14 1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: 0;
 }
+
 #controls {
-    margin-bottom: 25px; /* More margin */
+    margin-bottom: 25px;
     text-align: center;
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center items */
-    align-items: center; /* Vertically align items */
-    flex-wrap: wrap; /* Allow wrapping */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #controls select,
 #controls button {
-    padding: 10px 15px; /* Larger padding */
-    margin: 0.5rem; /* Consistent margin */
+    padding: 10px 15px;
+    margin: 0.5rem;
     border: 1px solid #006400;
-    border-radius: 8px; /* More rounded corners */
+    border-radius: 8px;
     background-color: white;
     color: #006400;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    font-size: 1rem; /* Consistent font size */
+    font-size: 1rem;
 }
-#controls > * {
+
+#controls> * {
     margin: 0.25rem;
 }
 
@@ -271,7 +231,7 @@ section p {
 #controls select:hover {
     background-color: #006400;
     color: white;
-    transform: translateY(-2px); /* Slight lift on hover */
+    transform: translateY(-2px);
 }
 
 #quran-text {
@@ -288,11 +248,10 @@ section p {
 }
 
 /* --- About Section --- */
-
 #about {
-    background-color: #f5f5f5; /* Slightly different background */
+    background-color: #f5f5f5;
     border-radius: 15px;
-    padding: 3rem; /* More padding */
+    padding: 3rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -300,12 +259,12 @@ section p {
 #prayer-times-table {
     width: 100%;
     margin-top: 20px;
-    overflow-x: auto; /* Add horizontal scroll on small screens */
+    overflow-x: auto;
 }
+
 #prayer-times-table table {
     width: 100%;
     border-collapse: collapse;
-
 }
 
 #prayer-times-table th,
@@ -318,61 +277,50 @@ section p {
 #prayer-times-table th {
     background-color: #006400;
     color: white;
-     border-radius: 8px;
+    border-radius: 8px;
 }
 
 #prayer-times-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-#prayer-times-table tr{
-     border-radius: 8px;
+
+#prayer-times-table tr {
+    border-radius: 8px;
 }
 
-/* --- Events Section --- */
-.event-list {
+/* --- Events Section --- */.event-list {
     display: grid;
-    gap: 1.5rem; /* Add gap between event items */
-}
-
-.event {
+    gap: 1.5rem;
+}.event {
     background-color: white;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.event h3 {
-     font-family: 'Amiri', serif;
-     color: #006400;
-     margin-bottom:0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}.event h3 {
+    font-family: 'Amiri', serif;
+    color: #006400;
+    margin-bottom: 0.5rem;
 }
 
 /* --- Contact Section --- */
 #contact {
-   background-color: #f5f5f5; /* Slightly different background */
+    background-color: #f5f5f5;
     border-radius: 15px;
-    padding: 3rem; /* More padding */
+    padding: 3rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.social-links {
+}.social-links {
     list-style: none;
     padding: 0;
-    display: flex; /* Use flexbox for social links */
-    justify-content: center; /* Center the links */
+    display: flex;
+    justify-content: center;
     margin-top: 1rem;
-}
-
-.social-links li {
+}.social-links li {
     margin: 0 1rem;
-}
-
-.social-links a {
+}.social-links a {
     color: #006400;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-.social-links a:hover {
+}.social-links a:hover {
     color: #004d00;
 }
 
@@ -380,24 +328,24 @@ section p {
 footer {
     background-color: #006400;
     color: white;
-    padding: 1.5rem; /* Increased padding */
+    padding: 1.5rem;
     text-align: center;
-    font-size: 0.9rem; /* Slightly smaller font size */
+    font-size: 0.9rem;
 }
 
 /* --- Responsive Design --- */
-
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* Stack navigation items */
-        align-items: center; /* Center items vertically */
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        margin: 0.5rem 0; /* Adjust margin for stacked items */
+        margin: 0.5rem 0;
     }
-     header {
-        padding: 0.75rem; /* Reduce header padding */
+
+    header {
+        padding: 0.75rem;
     }
 
     #controls {
@@ -413,47 +361,49 @@ footer {
         line-height: 2;
     }
 
-    .hero h2 {
+  .hero h2 {
         font-size: 2rem;
     }
 
-    .hero p {
+  .hero p {
         font-size: 1rem;
     }
 
     section {
-        padding: 2rem 1rem; /* Reduce section padding */
+        padding: 2rem 1rem;
     }
 
-    .home-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
+  .home-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1rem;
         padding: 1rem;
     }
 
-    #about, #contact {
-        padding: 2rem; /*Reduce Padding*/
+    #about,
+    #contact {
+        padding: 2rem;
     }
-     .hero{
-         padding: 4rem 1rem;
-         margin-bottom:1rem;
-     }
-     .event-list{
+
+  .hero {
+        padding: 4rem 1rem;
+        margin-bottom: 1rem;
+    }
+
+  .event-list {
         grid-template-columns: 1fr;
-     }
-}
+    }
 
 /* --- Language Switching Styles --- */
 
-.ar, .en { /*  Hide BOTH by default */
-    display: none;
-}
 [dir="rtl"] {
     direction: rtl;
 }
-.quran-page-pattern, .hero-pattern {
+
+.opacity {
     opacity: 0.5;
 }
+
 #loading-indicator {
-        display:none;
-    }
+    display: none;
+}
+}
