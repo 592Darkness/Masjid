@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagotville Masjid - Home</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Welcome to the Bagotville Masjid website. A center for faith, community, and learning.">
 </head>
 <body>
-    <div id="loading-indicator" style="text-align: center;">Loading...</div>
+    <div id="loading-indicator">
+        <img src="loading.svg" alt="Loading..." width="25" height="25">
+    </div>
 
     <header>
         <div class="header-top">
             <div class="language-selector">
-                <button data-lang="en" class="lang-btn active">English</button> |
-                <button data-lang="ar" class="lang-btn">العربية</button>
+                <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
+                <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
             </div>
         </div>
         <h1 id="masjid-name">
-            <span lang="ar" dir="rtl" class="ar">بَغُوتْفِيلْ مَسْجِد</span><br>
+            <span lang="ar" dir="rtl" class="ar">مسجد باغوتفيل</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
@@ -29,8 +32,9 @@
                 <li><a href="about.html"><span class="en">About Us</span><span class="ar" lang="ar" dir="rtl">معلومات عنا</span></a></li>
                 <li><a href="prayer-times.html"><span class="en">Prayer Times</span><span class="ar" lang="ar" dir="rtl">أوقات الصلاة</span></a></li>
                 <li><a href="events.html"><span class="en">Events</span><span class="ar" lang="ar" dir="rtl">الأحداث</span></a></li>
-                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">قرآن</span></a></li>
-                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل</span></a></li>
+                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">القرآن الكريم</span></a></li>
+                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل بنا</span></a></li>
+                <li><a href="ramadan.html"><span class="en">Ramadan</span><span class="ar" lang="ar" dir="rtl">رمضان</span></a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +42,6 @@
     <main>
         <section id="home">
             <div class="hero">
-                <div class="hero-pattern"></div>
                 <div class="hero-content">
                     <h2 class="en">Welcome to Bagotville Masjid</h2>
                     <h2 class="ar" lang="ar" dir="rtl">مرحبا بكم في مسجد باغوتفيل</h2>
@@ -46,33 +49,6 @@
                     <p class="ar" lang="ar" dir="rtl">مركز للإيمان والمجتمع والتعلم</p>
                     <a href="about.html" class="button en">Learn More</a>
                     <a href="about.html" class="button ar" lang="ar" dir="rtl">تعلم المزيد</a>
-                </div>
-            </div>
-
-            <div class="home-grid">
-                <div class="home-grid-item">
-                    <h3 class="en">Prayer Times</h3>
-                    <h3 class="ar" lang="ar" dir="rtl">أوقات الصلاة</h3>
-                    <p class="en">Find accurate daily prayer times.</p>
-                    <p class="ar" lang="ar" dir="rtl">.اعثر على أوقات الصلاة اليومية الدقيقة</p>
-                    <a href="prayer-times.html" class="button en">View Schedule</a>
-                    <a href="prayer-times.html" class="button ar" lang="ar" dir="rtl">عرض الجدول</a>
-                </div>
-                <div class="home-grid-item">
-                    <h3 class="en">Upcoming Events</h3>
-                    <h3 class="ar" lang="ar" dir="rtl">الأحداث القادمة</h3>
-                    <p class="en">Stay informed about our community events.</p>
-                    <p class="ar" lang="ar" dir="rtl">.ابق على اطلاع بأحداث مجتمعنا</p>
-                    <a href="events.html" class="button en">See Events</a>
-                    <a href="events.html" class="button ar" lang="ar" dir="rtl">شاهد الأحداث</a>
-                </div>
-                <div class="home-grid-item">
-                    <h3 class="en">Read the Quran</h3>
-                    <h3 class="ar" lang="ar" dir="rtl">اقرأ القرآن</h3>
-                    <p class="en">Access the Holy Quran online.</p>
-                    <p class="ar" lang="ar" dir="rtl">.الوصول إلى القرآن الكريم عبر الإنترنت</p>
-                    <a href="quran.html" class="button en">Read Now</a>
-                    <a href="quran.html" class="button ar" lang="ar" dir="rtl">اقرأ الآن</a>
                 </div>
             </div>
         </section>

@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagotville Masjid - Prayer Times</title>
     <link rel="stylesheet" href="style.css">
-     <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Find the daily prayer times for Bagotville Masjid.">
 </head>
 <body>
-    <div id="loading-indicator" style="text-align: center;">Loading...</div>
+    <div id="loading-indicator">
+        <img src="loading.svg" alt="Loading..." width="25" height="25">
 
-     <header>
+    </div>
+
+    <header>
         <div class="header-top">
             <div class="language-selector">
-                <button data-lang="en" class="lang-btn active">English</button> |
-                <button data-lang="ar" class="lang-btn">العربية</button>
+                <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
+                <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
             </div>
         </div>
         <h1 id="masjid-name">
-             <span lang="ar" dir="rtl" class="ar">بَغُوتْفِيلْ مَسْجِد</span><br>
+            <span lang="ar" dir="rtl" class="ar">مسجد باغوتفيل</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
@@ -29,70 +33,71 @@
                 <li><a href="about.html"><span class="en">About Us</span><span class="ar" lang="ar" dir="rtl">معلومات عنا</span></a></li>
                 <li><a href="prayer-times.html"><span class="en">Prayer Times</span><span class="ar" lang="ar" dir="rtl">أوقات الصلاة</span></a></li>
                 <li><a href="events.html"><span class="en">Events</span><span class="ar" lang="ar" dir="rtl">الأحداث</span></a></li>
-                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">قرآن</span></a></li>
-                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل</span></a></li>
+                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">القرآن الكريم</span></a></li>
+                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل بنا</span></a></li>
+                <li><a href="ramadan.html"><span class="en">Ramadan</span><span class="ar" lang="ar" dir="rtl">رمضان</span></a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-      <section id="prayer-times">
-            <h2 class = "en">Prayer Times</h2>
-            <h2 class = "ar" lang = "ar" dir="rtl">أوقات الصلاة</h2>
-             <div id="prayer-times-table">
-              <table>
+        <section id="prayer-times">
+            <h2 class="en">Prayer Times</h2>
+            <h2 class="ar" lang="ar" dir="rtl">أوقات الصلاة</h2>
+            <div id="prayer-times-table">
+                <table>
                     <thead>
                         <tr>
-                            <th class = "en">Prayer</th>
-                             <th class = "ar" lang="ar" dir="rtl">الصلاة</th>
-                            <th class = "en">Time</th>
-                            <th class = "ar" lang="ar" dir="rtl">الوقت</th>
+                            <th class="en">Prayer</th>
+                            <th class="ar" lang="ar" dir="rtl">الصلاة</th>
+                            <th class="en">Time</th>
+                            <th class="ar" lang="ar" dir="rtl">الوقت</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class = "en">Fajr</td>
-                            <td class = "ar" lang="ar" dir="rtl">الفجر</td>
-                            <td class="en">[Time]</td>
-                           <td class = "ar" lang="ar" dir="rtl">[Time]</td>
-
+                            <td class="en">Fajr</td>
+                            <td class="ar" lang="ar" dir="rtl">الفجر</td>
+                            <td class="en">5:00 AM</td>
+                            <td class="ar" lang="ar" dir="rtl">5:00 AM</td>
                         </tr>
                         <tr>
-                             <td class = "en">Dhuhr</td>
-                            <td class = "ar" lang="ar" dir="rtl">الظهر</td>
-                            <td class = "en">[Time]</td>
-                            <td class = "ar" lang="ar" dir="rtl">[Time]</td>
+                            <td class="en">Dhuhr</td>
+                            <td class="ar" lang="ar" dir="rtl">الظهر</td>
+                            <td class="en">12:00 PM</td>
+                            <td class="ar" lang="ar" dir="rtl">12:00 PM</td>
                         </tr>
                         <tr>
-                             <td class = "en">Asr</td>
-                            <td class = "ar" lang="ar" dir="rtl">العصر</td>
-                            <td class="en">[Time]</td>
-                            <td class = "ar" lang="ar" dir="rtl">[Time]</td>
+                            <td class="en">Asr</td>
+                            <td class="ar" lang="ar" dir="rtl">العصر</td>
+                            <td class="en">3:30 PM</td>
+                            <td class="ar" lang="ar" dir="rtl">3:30 PM</td>
                         </tr>
                         <tr>
-                            <td class = "en">Maghrib</td>
-                            <td class = "ar" lang="ar" dir="rtl">المغرب</td>
-                            <td class = "en">[Time]</td>
-                            <td class = "ar" lang="ar" dir="rtl">[Time]</td>
+                            <td class="en">Maghrib</td>
+                            <td class="ar" lang="ar" dir="rtl">المغرب</td>
+                            <td class="en">6:00 PM</td>
+                            <td class="ar" lang="ar" dir="rtl">6:00 PM</td>
                         </tr>
                         <tr>
-                             <td class = "en">Isha</td>
-                            <td class = "ar" lang="ar" dir="rtl">العشاء</td>
-                            <td class="en">[Time]</td>
-                            <td class = "ar" lang="ar" dir="rtl">[Time]</td>
+                            <td class="en">Isha</td>
+                            <td class="ar" lang="ar" dir="rtl">العشاء</td>
+                            <td class="en">7:30 PM</td>
+                            <td class="ar" lang="ar" dir="rtl">7:30 PM</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-           <p class="en">Prayer times provided by [Source - e.g., your local Islamic authority or an API].</p>
-            <p class = "ar" lang="ar" dir="rtl">.أوقات الصلاة مقدمة من [المصدر - على سبيل المثال، الهيئة الإسلامية المحلية أو واجهة برمجة التطبيقات]</p>
-
+            <p class="en">Prayer times provided by [Source - e.g., your local Islamic authority or an API].</p>
+            <p class="ar" lang="ar" dir="rtl">.أوقات الصلاة مقدمة من [المصدر - على سبيل المثال، الهيئة الإسلامية المحلية أو واجهة برمجة التطبيقات]</p>
         </section>
     </main>
+
     <footer>
         <p class="en">&copy; 2023 Bagotville Masjid. All rights reserved.</p>
         <p class="ar" lang="ar" dir="rtl">&copy; 2023 مسجد باغوتفيل. كل الحقوق محفوظة.</p>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

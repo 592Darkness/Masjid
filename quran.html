@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagotville Masjid - Quran</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Read the Holy Quran online with translation.">
 </head>
 <body>
-    <div id="loading-indicator" style="text-align: center;">Loading...</div>
+    <div id="loading-indicator">
+        <img src="loading.svg" alt="Loading..." width="25" height="25">
+    </div>
 
     <header>
         <div class="header-top">
             <div class="language-selector">
-                <button data-lang="en" class="lang-btn active">English</button> |
-                <button data-lang="ar" class="lang-btn">العربية</button>
+                <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
+                <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
             </div>
         </div>
         <h1 id="masjid-name">
-            <span lang="ar" dir="rtl" class="ar">بَغُوتِْفِيلْ مَسْجِد</span><br>
+            <span lang="ar" dir="rtl" class="ar">مسجد باغوتفيل</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
@@ -29,15 +32,15 @@
                 <li><a href="about.html"><span class="en">About Us</span><span class="ar" lang="ar" dir="rtl">معلومات عنا</span></a></li>
                 <li><a href="prayer-times.html"><span class="en">Prayer Times</span><span class="ar" lang="ar" dir="rtl">أوقات الصلاة</span></a></li>
                 <li><a href="events.html"><span class="en">Events</span><span class="ar" lang="ar" dir="rtl">الأحداث</span></a></li>
-                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">قرآن</span></a></li>
-                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل</span></a></li>
+                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">القرآن الكريم</span></a></li>
+                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل بنا</span></a></li>
+                <li><a href="ramadan.html"><span class="en">Ramadan</span><span class="ar" lang="ar" dir="rtl">رمضان</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="quran">
-            <div class="quran-page-pattern"></div>
             <h2 class="en">Read the Holy Quran</h2>
             <h2 class="ar" lang="ar" dir="rtl">اقرأ القرآن الكريم</h2>
             <div id="quran-container">
@@ -51,14 +54,6 @@
                     <button id="next-surah-bten" class="en">Next Surah</button>
                     <button id="next-surah-btar" class="ar" lang="ar" dir="rtl">السورة التالية</button>
 
-                    <label for="ayah-select" class="en">Select Ayah:</label>
-                    <label for="ayah-select-ar" class="ar" lang="ar" dir="rtl">اختر الآية</label>
-                    <select id="ayah-select"></select>
-
-                    <button id="prev-ayah-bten" class="en">Previous Ayah</button>
-                    <button id="prev-ayah-btar" class="ar" lang="ar" dir="rtl">الآية السابقة</button>
-                    <button id="next-ayah-bten" class="en">Next Ayah</button>
-                    <button id="next-ayah-btar" class="ar" lang="ar" dir="rtl">الآية التالية</button>
                 </div>
                 <div id="quran-text"></div>
             </div>
@@ -66,7 +61,7 @@
     </main>
 
     <footer>
-        <p class="en">&copy; 2023 Bagotville Masjid.  All rights reserved.</p>
+        <p class="en">&copy; 2023 Bagotville Masjid. All rights reserved.</p>
         <p class="ar" lang="ar" dir="rtl">&copy; 2023 مسجد باغوتفيل. كل الحقوق محفوظة.</p>
     </footer>
 
