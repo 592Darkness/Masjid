@@ -463,3 +463,40 @@ footer {
     color: #006400;
     margin-bottom: 0.5rem;
 }
+
+/*... other styles... */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /*... other responsive styles... */
+
+    nav ul {
+        display: none; /* Hide the navigation list by default */
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%; /* Position the dropdown below the header */
+        left: 0;
+        width: 100%;
+        background-color: #262626; /* Match header background */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 10px 10px; /* Optional: Rounded corners */
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+        width: 100%; /* Make list items full width */
+    }
+
+    nav a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #333; /* Optional: Separator between items */
+    }
+
+    /* Show the navigation list when the header is hovered or focused */
+    header:hover nav ul,
+    header:focus-within nav ul {
+        display: flex;
+    }
+}
