@@ -17,17 +17,27 @@
 
     <header>
         <div class="header-top">
-            <div class="language-selector">
-                <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
-                <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
+            <div class="header-top">
+                <div class="language-selector">
+                    <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
+                    <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
+                </div>
+                 <button id="theme-toggle" aria-label="Toggle Dark Mode"> <!-- Add this button -->
+                        <span class="theme-icon-light"><img src="sun.svg" alt="Light Mode"></span> <!--Use appropriate img  -->
+                        <span class="theme-icon-dark"><img src="moon.svg" alt="Dark Mode"></span> <!-- Use appropriate img -->
+                  </button>
             </div>
-        </div>
         <h1 id="masjid-name">
             <span lang="ar" dir="rtl" class="ar">مسجد باغوتفيل</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
-        <nav>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span class="en">Menu</span>
+            <span class="ar" lang="ar" dir="rtl">القائمة</span>
+        </button>
+        
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html"><span class="en">Home</span><span class="ar" lang="ar" dir="rtl">الرئيسية</span></a></li>
                 <li><a href="about.html"><span class="en">About Us</span><span class="ar" lang="ar" dir="rtl">معلومات عنا</span></a></li>
@@ -88,8 +98,6 @@
                     </tbody>
                 </table>
             </div>
-            <p class="en">Prayer times provided by [Source - e.g., your local Islamic authority or an API].</p>
-            <p class="ar" lang="ar" dir="rtl">.أوقات الصلاة مقدمة من [المصدر - على سبيل المثال، الهيئة الإسلامية المحلية أو واجهة برمجة التطبيقات]</p>
         </section>
     </main>
 
