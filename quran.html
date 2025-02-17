@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagotville Masjid - Quran</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <meta name="description" content="Read the Holy Quran online with translation.">
 </head>
@@ -20,13 +20,22 @@
                 <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
                 <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
             </div>
+              <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <span class="theme-icon-light"><img src="sun.svg" alt="Light Mode"></span>
+            <span class="theme-icon-dark"><img src="moon.svg" alt="Dark Mode"></span>
+             </button>
         </div>
         <h1 id="masjid-name">
             <span lang="ar" dir="rtl" class="ar">مسجد باغوتفيل</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
-        <nav>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span class="en">Menu</span>
+            <span class="ar" lang="ar" dir="rtl">القائمة</span>
+        </button>
+
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html"><span class="en">Home</span><span class="ar" lang="ar" dir="rtl">الرئيسية</span></a></li>
                 <li><a href="about.html"><span class="en">About Us</span><span class="ar" lang="ar" dir="rtl">معلومات عنا</span></a></li>
@@ -61,8 +70,8 @@
     </main>
 
     <footer>
-        <p class="en">&copy; 2023 Bagotville Masjid. All rights reserved.</p>
-        <p class="ar" lang="ar" dir="rtl">&copy; 2023 مسجد باغوتفيل. كل الحقوق محفوظة.</p>
+        <p class="en">© 2023 Bagotville Masjid. All rights reserved.</p>
+        <p class="ar" lang="ar" dir="rtl">© 2023 مسجد باغوتفيل. كل الحقوق محفوظة.</p>
     </footer>
 
     <script src="script.js"></script>
