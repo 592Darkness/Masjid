@@ -5,58 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagotville Masjid - Ramadan Activities</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+     <meta name="description" content="Ramadan information">
 </head>
 <body>
-    <img src="loading.svg" alt="Loading..." width="25" height="25">
+   <div id="loading-indicator">
+        <img src="loading.svg" alt="Loading..." width="50" height="50">
+    </div>
 
     <header>
         <div class="header-top">
             <div class="language-selector">
-                <button data-lang="en" class="lang-btn active">English</button> |
-                <button data-lang="ar" class="lang-btn">العربية</button>
+                <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
+                <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
             </div>
+             <button id="theme-toggle" aria-label="Toggle Dark Mode"> <!-- Add this button -->
+                    <span class="theme-icon-light"><img src="sun.svg" alt="Light Mode"></span> <!--Use appropriate img  -->
+                    <span class="theme-icon-dark"><img src="moon.svg" alt="Dark Mode"></span> <!-- Use appropriate img -->
+              </button>
         </div>
         <h1 id="masjid-name">
             <span lang="ar" dir="rtl" class="ar">بَغُوتِْفِيلْ مَسْجِد</span><br>
             <span lang="en" class="en">Bagotville Masjid</span>
         </h1>
 
-        <nav>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span class="en">Menu</span>
+            <span class="ar" lang="ar" dir="rtl">القائمة</span>
+        </button>
+
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html"><span class="en">Home</span><span class="ar" lang="ar" dir="rtl">الرئيسية</span></a></li>
                 <li><a href="about.html"><span class="en">About Us</span><span class="ar" lang="ar" dir="rtl">معلومات عنا</span></a></li>
                 <li><a href="prayer-times.html"><span class="en">Prayer Times</span><span class="ar" lang="ar" dir="rtl">أوقات الصلاة</span></a></li>
                 <li><a href="events.html"><span class="en">Events</span><span class="ar" lang="ar" dir="rtl">الأحداث</span></a></li>
-                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">قرآن</span></a></li>
-                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل</span></a></li>
+                <li><a href="quran.html"><span class="en">Quran</span><span class="ar" lang="ar" dir="rtl">القرآن الكريم</span></a></li>
+                <li><a href="contact.html"><span class="en">Contact</span><span class="ar" lang="ar" dir="rtl">اتصل بنا</span></a></li>
                 <li><a href="ramadan.html"><span class="en">Ramadan</span><span class="ar" lang="ar" dir="rtl">رمضان</span></a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="ramadan">
-            <h2 class="en">Ramadan Activities</h2>
-            <h2 class="ar" lang="ar" dir="rtl">أنشطة رمضان</h2>
-            <div class="ramadan-activities">
-                <h3 class="en">Daily Iftar Gatherings</h3>
-                <h3 class="ar" lang="ar" dir="rtl">تجمعات إفطار يومية</h3>
-                <p class="en">Join us every evening for iftar gatherings at the masjid.</p>
-                <p class="ar" lang="ar" dir="rtl">انضم إلينا كل مساء لتجمعات الإفطار في المسجد.</p>
+  <main>
+    <section id="ramadan">
+      <h2 class="en">Ramadan at Bagotville Masjid</h2>
+        <h2 class="ar" lang="ar" dir="rtl">رمضان في مسجد باغوتفيل</h2>
 
-                <h3 class="en">Taraweeh Prayers</h3>
+      <div class="ramadan-intro">
+        <p class="en">Welcome to our Ramadan page. Find information about Iftar, Taraweeh, special events, and community activities during the holy month.</p>
+         <p class="ar" lang="ar" dir="rtl">
+          مرحبًا بكم في صفحة رمضان. اعثر على معلومات حول الإفطار والتراويح والفعاليات الخاصة وأنشطة المجتمع خلال الشهر
+          الفضيل.
+        </p>
+      </div>
+
+
+    <div class="ramadan-activities">
+        <!-- Activity Card 1 -->
+      <div class="ramadan-activity">
+        <!-- <img src="iftar-image.jpg" alt="Iftar" class="activity-image">  REMOVE IMAGE -->
+        <div class="activity-text">
+            <h3 class="en">Daily Iftar</h3>
+              <h3 class="ar" lang="ar" dir="rtl">إفطار يومي</h3>
+            <p class="en">Join us for Iftar every day at sunset. Food will be provided.</p>
+            <p class="ar" lang="ar" dir="rtl">انضموا إلينا لتناول الإفطار كل يوم عند غروب الشمس. سيتم توفير الطعام.</p>
+        </div>
+      </div>
+
+      <!-- Activity Card 2 -->
+       <div class="ramadan-activity">
+            <!-- <img src="taraweeh-image.jpg" alt="Taraweeh" class="activity-image"> REMOVE IMAGE -->
+           <div class="activity-text">
+              <h3 class="en">Taraweeh Prayers</h3>
                 <h3 class="ar" lang="ar" dir="rtl">صلاة التراويح</h3>
-                <p class="en">Taraweeh prayers will be held every night after Isha'a prayer.</p>
-                <p class="ar" lang="ar" dir="rtl">ستقام صلاة التراويح كل ليلة بعد صلاة العشاء.</p>
+              <p class="en">Taraweeh prayers are held nightly after Isha prayer.</p>
+              <p class="ar" lang="ar" dir="rtl">صلاة التراويح ستقام كل ليلة بعد صلاة العشاء.</p>
             </div>
-        </section>
-    </main>
+       </div>
+        <!-- Activity card 3 -->
+        <div class="ramadan-activity">
+            <!-- <img src="quran-image.jpg" alt="Quran Recitation" class="activity-image"> REMOVE IMAGE-->
+            <div class="activity-text">
+              <h3 class="en">Quran Recitation</h3>
+              <h3 class="ar" lang="ar" dir="rtl">تلاوة القرآن</h3>
+                <p class="en">Special Quran recitation sessions throughout Ramadan.</p>
+                <p class="ar" lang="ar" dir="rtl">ستعقد جلسات خاصة لتلاوة القرآن طوال شهر رمضان.</p>
+            </div>
+        </div>
+
+          <!-- Activity Card 4 -->
+        <div class="ramadan-activity">
+          <!--  <img src="community-image.jpg" alt="Community Gathering" class="activity-image"> REMOVE IMAGE-->
+            <div class="activity-text">
+                <h3 class="en">Community Gatherings</h3>
+                <h3 class="ar" lang="ar" dir="rtl">تجمعات مجتمعية</h3>
+                  <p class="en">We offer weekly family Iftars and kid-friendly programs. Check back to see our schedule for Ramadan!</p>
+                 <p class="ar" lang="ar" dir="rtl">نحن نقدم إفطارًا عائليًا أسبوعيًا وبرامج صديقة للأطفال. تحقق مرة أخرى لترى جدولنا لشهر رمضان!</p>
+
+            </div>
+        </div>
+
+        <!-- Add more activity cards as needed -->
+      </div>
+       </section>
+     </main>
 
     <footer>
-        <p class="en">&copy; 2023 Bagotville Masjid.  All rights reserved.</p>
-        <p class="ar" lang="ar" dir="rtl">&copy; 2023 مسجد باغوتفيل. كل الحقوق محفوظة.</p>
+        <p class="en">© 2023 Bagotville Masjid.  All rights reserved.</p>
+        <p class="ar" lang="ar" dir="rtl">© 2023 مسجد باغوتفيل. كل الحقوق محفوظة.</p>
     </footer>
 
     <script src="script.js"></script>
