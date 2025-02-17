@@ -1,167 +1,273 @@
-/* Basic Reset */
+/* --- Reset & Basic Styles --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Hide Arabic elements initially */.ar {
-    display: none;
-}
-
+/* --- Fonts (Improved Selection) --- */
 body {
-    font-family: 'Open Sans', sans-serif; 
+    font-family: 'Roboto', sans-serif; /* Modern, clean sans-serif */
     line-height: 1.6;
-    background-color: #131313; /* Dark background color */
-    color: #f4f4f4; /* Light text color */
+    background-color: #f8f9fa; /* Light gray background */
+    color: #343a40; /* Dark gray text */
 }
 
-/* --- Header & Navigation --- */
+h1, h2, h3 {
+    font-family: 'Raleway', sans-serif;  /* Slightly more stylish heading font */
+    font-weight: 700;  /* Bold headings */
+}
+
+/* --- Header --- */
 header {
-    background-color: #262626; /* Darker header background */
-    color: white;
-    padding: 1rem;
+    background-color: #fff; /* White header for contrast */
+    color: #343a40;
+    padding: 1rem 0; /* Adjusted padding */
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid #dee2e6; /* Light border */
 }
-.content-wrapper {
-    transform: scale(1);
+.header-top {
+  display: flex;
+  justify-content: center; /* Center the language selector horizontally */
+  align-items: center;     /* Center vertically as well */
+  padding: 0.5rem 0;        /* Add padding, top and bottom */
+  background-color: #343a40; /* Consistent with overall color scheme*/
+}
+.language-selector {
+  display: flex;
+    align-items: center;  /* Vertically align items within the flex container*/
+
 }
 
-/*... rest of your CSS code... */
-.header-top {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.5rem 1rem;
-    background-color: #025202;
-}.language-selector {
-    display: flex;
+.language-selector button {
+  margin: 0 0.4rem;  /* Add some spacing between the buttons */
+    /*Ensure flags do not overflow in small devices*/
+    display: flex;/*Use Flexbox to better align flags*/
     align-items: center;
-}.lang-btn {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 0.25rem 0.5rem;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}.lang-btn.active {
-    font-weight: bold;
-    color: #f0e68c;
+
 }
 
 #masjid-name {
-    font-family: 'Amiri', serif;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.8rem; /* Slightly larger font size */
+    margin-bottom: 0;   /* Reduce bottom margin */
+    text-transform: uppercase; /* Make the name uppercase */
+    letter-spacing: 1px;    /* Add some letter spacing */
+}
+#masjid-name .en{
+  color:#343a40;
+}
+#masjid-name .ar {
+  color: #057d05;  /* A slightly different color for Arabic for distinction */
+   font-size: 3.2rem;  /* Optionally, make Arabic a little bigger */
+   margin-bottom:.5rem;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0.5rem 1rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding: 0.25rem 0;
-    border-bottom: 2px solid transparent;
-    display: block;
-}
-
-nav a:hover {
-    color: #f0e68c;
-    border-bottom: 2px solid #f0e68c;
-}
-
-/* --- Home Section --- */.hero {
-    background-image: url('masjid-image.png'); /* Replace with your hero image */
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    padding: 8rem 2rem; /* Increased padding */
-    position: relative;
-}.hero::before {
-    content: '';
-    position: absolute;
+/* --- Navigation (Sidebar) --- */
+#main-nav {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-}.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative; /* Ensure content is on top of the overlay */
-}.hero h2 {
-    font-size: 3rem; /* Larger heading font size */
-    margin-bottom: 1rem;
-    font-family: 'Amiri', serif;
-    color: #f4f4f4; /* Light heading color */
-}.hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    color: #e0e0e0; /* Slightly lighter text color */
-}.button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #d4ac0d; /* Gold button color */
-    color: #333;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 280px; /* Slightly wider sidebar */
+    background-color: #343a40; /* Dark background */
+    color: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100; /* Make sure menu is on top of content, below button. */
+    overflow-y: auto;
+    padding-top: 3rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 
-/*... (rest of your CSS styles) */
-
-}.button:hover {
-    background-color: #ffd700;
-    transform: translateY(-2px);
-}.home-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}.home-grid-item {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}.home-grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}.home-grid-item h3 {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
-    font-family: 'Amiri', serif;
-    color: #006400;
-}.home-grid-item p {
-    margin-bottom: 1rem;
-    color: #555;
 }
 
-/* --- Other Sections --- */
-section {
-    padding: 4rem 2rem; /* Increased padding */
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
+#main-nav.open {
+    transform: translateX(0);
+}
+
+#main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#main-nav li {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lighter separator */
+}
+
+#main-nav a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.3s, color 0.3s; /* Smoother transition */
+}
+
+/*---Nav-a---*/
+#main-nav a:hover,
+    #main-nav a:focus {
+      background-color:#057d05;
+      color:#fff;/*change font-color to improve readbility*/
+        outline: none; /* Remove default focus outline */
+}
+.lang-btn{
+   background: transparent;
+   color:#fff;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+   font-family: 'Roboto', sans-serif;/*inherit from body */
+    border-radius: 4px;
+    cursor: pointer;
+    border:none; /*removes default border*/
+
+}
+/*Lang btn hover & focus */
+.lang-btn:hover,
+  .lang-btn:focus {
+    background-color: rgba(255, 255, 255, 0.2);  /*Semi-transparent white */
+    color: #fff;            /* Maintain text color */
+     outline: none;          /* Remove default focus styling */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  /* More visible shadow */
+ }
+
+/* --- Toggle Button --- */
+#nav-toggle {
+   position: fixed; /* Button is always visible as user scrolls */
+    top: 1rem;
+    left: 1rem;
+    background-color: #057d05; /* Green button */
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    z-index: 101;  /*  Higher z-index than menu (which is 100 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+/*---Loading---*/
+#loading-indicator {
+    position: fixed; /* Keep it in a consistent location */
+    top: 50%;      /* Center vertically */
+    left: 50%;      /* Center horizontally */
+    transform: translate(-50%, -50%); /*  Adjust for the element's size */
+    background-color: rgba(255, 255, 255, 0.8); /*Semi-transparent white */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 200;   /* Make sure loading is on top of everything */
+     display: none;   /*Hide it when loading finishes */
+}
+
+#nav-toggle:hover,
+#nav-toggle:focus {
+    background-color: #0056b3; /* Darker green on hover */
+    outline: none;
+}
+
+
+/* --- Hero Section (Revised) --- */
+.hero {
+  background-image: url('masjid-image.jpg');  /* ***USE A HIGH-QUALITY IMAGE*** */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  /* Prevent image repetition */
+  text-align: center;
+  padding: 12rem 2rem;  /* More vertical space */
+  position: relative;
+  color: #fff; /* White text for better contrast */
+  margin-bottom: 3rem;
+  border-radius: 15px;       /* Optional: rounded corners */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);  /* Darker overlay */
+  border-radius: inherit;    /* Match parent .hero's border radius */
+}
+
+.hero-content {
+  position: relative; /* To stack content above the overlay */
+  z-index: 1;         /* Also for stacking context*/
+  max-width: 800px;
+  margin: 0 auto;    /* Center horizontally */
+}
+.hero h2{
+ font-size: 3.5rem;   /* More impactful size */
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+
+.hero p {
+  font-size: 1.5rem;  /* Larger and easier to read */
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /*  Subtle shadow */
+
+}
+
+.button {
+   display: inline-block;  /* Allows setting width/height and margins*/
+   padding: 0.75rem 1.5rem;   /* Comfortable padding */
+   font-size: 1.1rem;  /* Clear font size */
+   font-weight: bold;
+   text-align: center;  /* Center text horizontally */
+   text-decoration: none;
+   color: #fff;            /* White text*/
+    background-color: #057d05; /* Green button */
+   border: 2px solid #057d05; /* Add a matching border */
+   border-radius: 30px;        /* Fully rounded ends (pill shape) */
+   transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Add transform and box-shadow */
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.2); /*Small shadow*/
+    margin: 0 0.5rem;      /* Space between multiple buttons (if present) */
+
+}
+/*---Button hover and focus----*/
+ .button:hover,
+    .button:focus {
+        /* ... (Your existing hover/focus styles) ... */
+        transform: scale(1.05); /* Slightly enlarge */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Larger shadow */
+    }
+/* --- Main Content Area --- */
+main {
+    padding: 2rem;  /* Add padding around main content*/
+     opacity: 0; /* Start invisible */
+        animation: fadeIn 1s ease-out forwards; /* Apply the animation */
+
+}
+/*---Keyframes---*/
+@keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); } /* Start slightly below */
+        to   { opacity: 1; transform: translateY(0); }    /* End at normal position */
+}
+
+/*---Footer---*/
+footer{
+  text-align: center;
+  padding: 2rem;
+  background-color: #343a40;/*consistent dark background*/
+  color:#fff;
+  margin-top: 3rem;/*space after main content*/
+}
+
+/*---About Section---*/
+#about{
+     background-color: #fff;/*White container*/
+    border-radius: 8px; /*Rounded corners*/
+    padding: 3rem;      /*Increase padding for spacing*/
+    box-shadow: 0 4px 8px rgba(0,0,0, 0.1); /*More defined Shadow*/
+    margin-bottom: 2rem;
 }
 
 section h2 {
@@ -169,334 +275,719 @@ section h2 {
     margin-bottom: 1.5rem;
     text-align: center;
     font-family: 'Amiri', serif;
-    color: #006400;
+    color: #057d05; /*consistent green for heading*/
 }
-
-section p {
-    text-align: justify;
+section p{
+    text-align: justify;/*Justified paragraphs*/
     padding: 1rem;
-    color: #444;
+     font-size: 1rem;  /*Make it consistent*/
+    line-height:1.7;/*Slightly increased line height*/
+    color: #343a40;/*consistent body color */
+}
+/* --- Prayer Times Section --- */
+#prayer-times-table {
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto;  /*Ensure scrolling on small screens */
+    background-color:#fff;
+    border-radius: 8px;/*Rounded*/
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#prayer-times-table table{
+    width:100%;/*Table should fill the container */
+    border-collapse: collapse; /*Removes space between cell*/
+
 }
 
+#prayer-times-table th,
+#prayer-times-table td {
+     text-align: center;   /*Center table text horizontally */
+    padding: 0.75rem 1rem; /* consistent and reduced padding*/
+    border-bottom: 1px solid #dee2e6; /* Use the defined border color */
+
+}
+
+#prayer-times-table th {
+    background-color: #057d05;
+    color: white;
+     border-top-left-radius: 8px;
+    border-top-right-radius: 8px; /* Round the top corners */
+     text-transform: uppercase;  /*Optional: Make headers uppercase */
+
+}
+/*--- Events Section ---*/
+#events{
+     background-color: #fff;
+     border-radius: 8px;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+
+}
+
+.event-list {
+     display: grid;
+     gap: 1rem;        /*Reduce space between*/
+}
+/*--- Event---- */
+.event {
+       background-color: #f8f9fa;  /* Very light gray for event cards */
+       padding: 1.5rem;
+      border: 1px solid #dee2e6;    /* Subtle borders */
+      border-radius: 8px;            /* Soft rounded corners */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05); /*Subtle lift effect */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;  /* For a hover effect */
+
+}
+/* --Event Hover---*/
+ .event:hover{
+      transform: translateY(-8px);/*Slighty bigger*/
+      box-shadow:0 8px 16px rgba(0,0,0,0.2);/*Bigger Shadow*/
+    }
+.event h3 {
+     font-size: 1.5rem; /*Slightly reduce size*/
+    margin-bottom: 0.5rem; /* Reduce space*/
+}
+
+.event p {
+    color: #6c757d;     /*A softer text color */
+     margin-bottom: 0;
+}
+
+/* --- Contact Section --- */
+#contact{
+  background-color: #fff;
+  box-shadow:0 2px 5px rgba(0,0,0, 0.1);/*soft shadow*/
+  border-radius: 8px;
+  padding: 3rem 2rem;
+
+}
+
+.social-links {
+   list-style: none;  /*Remove bullet points */
+   padding: 0;       /* No extra padding*/
+   display: flex;      /* Horizontal layout*/
+   justify-content: center; /*Align items to center*/
+    margin-top: 1.5rem; /* Space between links*/
+
+}
+.social-links li{
+     margin: 0 1rem;    /* Space between links */
+    display: inline-block;
+}
+
+.social-links a {
+     display: inline-block;/*Treat like blocks, for padding/sizing*/
+     padding: 0.4rem 0.8rem;   /* Some padding for clickability */
+    background-color: #057d05;/* Green background */
+    color: white;         /* White text */
+     text-decoration: none;  /* No underline */
+     border-radius: 4px;     /* Rounded corners*/
+     transition: background-color 0.3s ease; /*smooth transitions*/
+
+}
+
+.social-links a:hover{
+     background-color: #343a40;
+}
+#contact p{
+     text-align: center;
+    color:#343a40;
+     line-height: 1.8rem; /*Spacing between lines*/
+}
 /* --- Quran Section --- */
+
 #quran-container {
     margin-top: 20px;
     padding: 30px;
-    border: 2px solid #006400;
-    border-radius: 15px;
-    background-color: white;
+     border: 2px solid #057d05;    /*Use the defined accent color */
+    border-radius: 15px;            /*Increase rounding*/
+    background-color: #fff;          /* Clean white background*/
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}.quran-page-pattern {
+
+}
+
+.quran-page-pattern {  /* Consider removing this if not essential */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23006400' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41 2.83-2.83L3.41 31.76l1.42-1.42 2.82 2.82L8.4 27.53l-1.41-1.41-2.83 2.83 2.83 2.83-1.42 1.41L.58 35.76 2 37.17 0 38.59zM0 1.4l2.83 2.83 1.41-1.41L6.63 4l-2.82 2.83-1.42-1.42L.59 8.24l1.42 1.41 2.82-2.82L8.4 12.47l-1.41 1.41-2.83-2.83 2.83-2.83-1.42-1.41L.58 4.24 2 2.83 0 1.41zM12 27.46l14-14-1.41-1.41-14 14 1.41 1.41zm0-22l14 14-1.41 1.41-14-14 1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23006400' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41 2.83-2.83L3.41 31.76l1.42-1.42 2.82 2.82L8.4 27.53l-1.41-1.41-2.83 2.83 2.83 2.83-1.42 1.41L.58 35.76 2 37.17 0 38.59zM0 1.4l2.83 2.83 1.41-1.41L6.63 4l-2.82 2.83-1.42-1.42L.59 8.24l1.42 1.41 2.82-2.82L8.4 12.47l-1.41 1.41-2.83-2.83 2.83-2.83-1.42-1.41L.58 4.24 2 2.83 0 1.41zM12 27.46l14-14-1.41-1.41-14 14 1.41 1.41zm0-22l14 14-1.41 1.41-14-14 1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: 0;
 }
-
-#controls {
-    margin-bottom: 25px;
-    text-align: center;
-    display: flex;
+#controls{
+    margin-bottom: 1rem;/*Adjust Spacing*/
+    text-align:center;
+    display: flex;        /* Align controls */
+    flex-wrap:wrap;     /*Wrap items if too long*/
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    gap: 0.5rem;
 }
-
 #controls select,
-#controls button {
-    padding: 10px 15px;
-    margin: 0.5rem;
-    border: 1px solid #006400;
-    border-radius: 8px;
-    background-color: white;
-    color: #006400;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    font-size: 1rem;
+#controls button{
+  padding: 0.5rem 1rem;        /* Consistent Padding*/
+    font-size: 1rem;              /* Consistent size*/
+     background-color: #fff;          /* White background */
+    color: #343a40;          /* Consistent text */
+     border: 1px solid #ced4da;        /* A subtle gray */
+     border-radius: 4px;            /* Slightly Rounded */
+     transition: border-color 0.3s ease, box-shadow 0.3s ease; /*  Subtle transitions */
+    box-shadow: inset 0 1px 2px rgba(0,0,0, 0.075);/*Inner shadow*/
+    cursor:pointer;
+
 }
 
-#controls> * {
-    margin: 0.25rem;
+/*Style when focused/hovered*/
+#controls select:focus,
+#controls button:focus,
+#controls select:hover,
+#controls button:hover {
+     border-color: #057d05;     /* Focus color- consistent */
+    outline: none;                  /* Remove the default focus outline */
+    box-shadow: 0 0 0 2px rgba(5, 125, 5, 0.25); /*Add custom Focus */
 }
-
-#controls button:hover,
-#controls select:hover {
-    background-color: #006400;
-    color: white;
-    transform: translateY(-2px);
+/*Style Prev and next btns*/
+#prev-surah-bten, #next-surah-bten {
+   background-color:#057d05;
+   color:white;
+    padding:0.5rem 1rem;
+    transition:background-color 0.3s ease; /*Smooth color transtition*/
 }
+ #prev-surah-bten:hover, #next-surah-bten:hover{
+     background-color:#343a40 ;
+}
+/* --- In your style.css --- */
 
 #quran-text {
-    font-size: 1.8rem;
-    line-height: 2.8;
+    font-size: 1.6rem;
+    line-height: 1.8;  /* Reduced from 2.5.  This is a KEY change. */
     font-family: 'Amiri', serif;
-    font-weight: 600;
-    padding: 20px;
+    font-weight: 400;
+    padding: 1rem;
     text-align: justify;
-    background-color: #f8f8f8;
+    background-color: #f8f9fa;
     letter-spacing: 0.05em;
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 70vh; /*  Increased max-height slightly.  Adjust as you like! */
 }
 
 #quran-text p {
-    margin-bottom: 1rem; /* Reduced margin-bottom */
-    border-bottom: 1px solid #eee; 
+    margin-bottom: 0.5rem; /*  Reduced from 1.5rem. This is also KEY. */
+    padding-bottom: 0.5rem; /*  Reduced padding */
+    border-bottom: 1px solid #ddd; /*  Lighter, less obtrusive border */
 }
 
 #quran-text span {
-    margin-right: 0.1em; 
+    margin-right: 0.2em;  /* Slightly increase word spacing, if needed. */
 }
 
-/* --- About Section --- */
-#about {
-    background-color: #f5f5f5;
-    border-radius: 15px;
-    padding: 3rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#quran-text span:not(:last-child)::after {
+  content: " "; /* Add a single normal space. Clean separation.*/
+  margin-right: 0.2em;/*A bit more visual spacing*/
 }
 
-/* --- Prayer Times Section --- */
-#prayer-times-table {
-    width: 100%;
-    margin-top: 20px;
-    overflow-x: auto;
+/* Optional: Remove the verse number parentheses if desired */
+#quran-text p::after {
+  /* content: "";  Completely remove if you *don't* want verse numbers */
+    display: inline-block; /* Allows for margin/padding if needed */
+    margin-left: 0.5em; /* Space between the text and verse number*/
+    font-size: 0.8em; /*Smaller font size */
+    color: #777;       /*muted grey color*/
+}
+/*---Ramadan Section*/
+
+#ramadan {
+    background-color:#fff;/*Clean background*/
+    border-radius: 8px;  /*consistent rounding*/
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);/*Subtle Lift*/
+    margin-bottom:2rem; /*consistent margin below*/
+
 }
 
-#prayer-times-table table {
-    width: 100%;
-    border-collapse: collapse;
-}
+.ramadan-activities{
+   display: grid; /*Use grid*/
+  gap:1.5rem;     /*Consistent gap b/w activities*/
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid*/
+   padding:1rem 0;/*Some inner padding */
 
-#prayer-times-table th,
-#prayer-times-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
 }
+.ramadan-activities h3{
+  font-size:1.5rem;    /*Clear, Legible size*/
+   color: #057d05;/*Consistent Green Color*/
+   margin-bottom: 0.5rem; /* Spacing for subheadings*/
+   font-weight: bold;
 
-#prayer-times-table th {
-    background-color: #006400;
-    color: white;
-    border-radius: 8px;
 }
-
-#prayer-times-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#prayer-times-table tr {
-    border-radius: 8px;
-}
-
-/* --- Events Section --- */.event-list {
-    display: grid;
-    gap: 1.5rem;
-}.event {
-    background-color: white;
+/* --- Ramadan activity--- */
+.ramadan-activity {
+    background-color: #f8f9fa;  /* Keep light gray background */
     padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}.event h3 {
-    font-family: 'Amiri', serif;
-    color: #006400;
-    margin-bottom: 0.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Keep the subtle shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /*  Hover effect */
+     margin-bottom: 1rem; /*  Add bottom margin to space out items */
+     text-align:center;/*Centere text*/
+
 }
-
-/* --- Contact Section --- */
-#contact {
-    background-color: #f5f5f5;
-    border-radius: 15px;
-    padding: 3rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}.social-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}.social-links li {
-    margin: 0 1rem;
-}.social-links a {
-    color: #006400;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}.social-links a:hover {
-    color: #004d00;
-}
-
-/* --- Footer --- */
-footer {
-    background-color: #006400;
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+/*--Ramada activity Hover effect---*/
+  .ramadan-activity:hover{
+      transform: translateY(-8px);/*Slighty bigger*/
+      box-shadow:0 8px 16px rgba(0,0,0,0.2);/*Bigger Shadow*/
     }
-
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-
-    header {
-        padding: 0.75rem;
-    }
-
-    #controls {
-        flex-direction: column;
-    }
-
-    #masjid-name {
-        font-size: 1.8rem;
-    }
-
-    #quran-text {
-        font-size: 1.1rem;
-        line-height: 2;
-    }
-
-  .hero h2 {
-        font-size: 2rem;
-    }
-
-  .hero p {
-        font-size: 1rem;
-    }
-
-    section {
-        padding: 2rem 1rem;
-    }
-
-  .home-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    #about,
-    #contact {
-        padding: 2rem;
-    }
-
-  .hero {
-        padding: 4rem 1rem;
-        margin-bottom: 1rem;
-    }
-
-  .event-list {
-        grid-template-columns: 1fr;
-    }
-
 /* --- Language Switching Styles --- */
+/*Show based on direction*/
 
 [dir="rtl"] {
     direction: rtl;
 }
-
-.opacity {
-    opacity: 0.5;
+/* Initially hide Arabic content*/
+.ar{
+   display: none;
+}
+.ar.active{
+     display: block;  /*For active content*/
 }
 
+
+/* --- Responsive Styles --- */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 992px) {
+
+    #main-nav {
+        width: 250px;  /*Reduce menu width on medium Screen*/
+    }
+    #quran-text {
+        font-size: 1.4rem;
+         line-height: 2.2; /*adjust as needed*/
+}
+}
+
+/* Smaller Devices (Phones) */
+@media (max-width: 768px) {
+    #main-nav {
+        width: 80%;  /* More width on very small screens */
+         padding-top:4rem ;
+
+    }
+
+     #nav-toggle{
+       top:0.9rem;
+       left:0.9rem;/*Adjust Positioning*/
+    }
+        header{
+        padding:0.7rem 0; /*Reduce vertical Padding */
+
+    }
+
+    #masjid-name {
+       font-size: 2rem;  /*Reduce font size further*/
+    }
+   #masjid-name .ar{
+     font-size: 2.2rem;
+
+   }
+     .hero{
+        padding:8rem 1rem;  /*Reduced top/Bottom Padding*/
+
+    }
+     .hero h2 {
+        font-size: 2.5rem;  /* Make heading responsive */
+    }
+
+     .hero p {
+       font-size: 1.2rem;  /* Adjust paragraph size*/
+    }
+
+     /*All sections - reduce paddings/margin as needed */
+    section{
+        padding: 2rem 1rem;/*less padding on small screens */
+
+    }
+      section h2 {
+       font-size:2rem ;
+
+      }
+      #contact, #events, #about, #ramadan {
+           padding:2rem 1rem; /*Less space around the Content */
+
+      }
+
+        /*--- Quran page---*/
+
+    #quran-text {
+      font-size: 1.3rem;  /* Adjust font size down */
+       line-height: 2;      /* Make sure spacing is comfortable */
+        padding: 0.8rem;      /*Reduce inner padding */
+   }
+   .social-links li{
+    margin:0 0.5rem;/*Less Space*/
+
+   }
+
+   .ramadan-activities {
+        grid-template-columns: 1fr;  /* Stack Ramadan items vertically */
+}
+}
+    /*  Even Smaller Screens */
+    @media (max-width: 480px){
+      #controls select, #controls button{
+           width: 100%;
+        }
+         #nav-toggle{
+    top:0.7rem;
+    left: 0.7rem;/*Adjust Positioning*/
+   }
+    }
+
+/* --- Keyframe animation--- */
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+    }
 #loading-indicator img {
-    width: 50px; 
-    height: 50px; 
-  }
+    width: 50px;
+    height: 50px;
+    animation: spin 1.5s linear infinite; /* Apply the spinning animation */
+}
+/*smooth scroll*/
+html {
+        scroll-behavior: smooth;
+    }
+
+
+/* --- Root Variables (Light/Dark Themes) --- */
+:root {
+    /* Light Theme Colors */
+    --color-background: #f8f9fa;
+    --color-text: #343a40;
+    --color-header-bg: #fff;
+    --color-header-text: #343a40;
+    --color-header-ar: #057d05; /* Arabic Header */
+    --color-nav-bg: #343a40;
+    --color-nav-text: #fff;
+    --color-nav-hover-bg: #057d05;
+    --color-nav-hover-text: #fff;
+    --color-button-bg: #057d05;
+    --color-button-text: #fff;
+    --color-button-border: #057d05;
+    --color-button-hover-bg: #0056b3;
+    --color-footer-bg: #343a40;
+    --color-footer-text: #fff;
+    --color-section-bg: #fff;
+    --color-heading: #057d05;
+    --color-table-header-bg: #057d05;
+    --color-table-header-text: white;
+    --color-social-link-bg: #057d05;
+    --color-social-link-hover-bg: #343a40;
+     --color-quran-bg:#fff; /*background*/
+     --color-quran-border: #057d05;  /* Border*/
+     --color-ramadan-card-bg: #f8f9fa;
+
 }
 
-/*... other styles... */
+/* Dark Theme Colors */
+.dark-theme {
+    --color-background: #121212;  /* Very dark gray */
+    --color-text: #e0e0e0;        /* Light gray text */
+    --color-header-bg: #1e1e1e;  /* Slightly lighter gray for header */
+    --color-header-text: #e0e0e0;
+    --color-header-ar: #4CAF50;   /* Adjust for visibility */
+    --color-nav-bg: #282828;     /* Slightly lighter for sidebar */
+    --color-nav-text: #e0e0e0;
+    --color-nav-hover-bg: #5cb85c;
+    --color-nav-hover-text: #1e1e1e;
+     --color-quran-bg:#1f1f1f;   /*  Background*/
+     --color-quran-border:  #4CAF50;     /*Border*/
+     --color-quran-text-link: #8AB4F8;
+     --color-quran-page: #333333;
 
-#quran-text {
-    font-size: 1.8rem;
-    line-height: 2.8;
-    font-family: 'Amiri', serif;
-    font-weight: 600;
-    padding: 20px;
-    text-align: justify;
-    background-color: #f8f8f8;
-    letter-spacing: 0.05em;
+    /*  Adjust other button colors, section colors, etc.  */
+    --color-button-bg: #4CAF50;
+    --color-button-border: #4CAF50;
+    --color-button-hover-bg: #5cb85c;
+    --color-footer-bg: #1e1e1e;
+    --color-section-bg: #282828;
+    --color-heading: #5cb85c;     /* A brighter green */
+    --color-table-header-bg: #343a40;  /*  */
+    --color-table-header-text: #e0e0e0;
+    --color-social-link-bg:  #5cb85c;/*Bright Green */
+    --color-social-link-hover-bg: #e0e0e0;
+    --color-ramadan-card-bg: #2f2f2f;
+
+
 }
 
-#quran-text p {
-    margin-bottom: 0.1rem; 
-    border-bottom: 1px solid #eee; 
-    line-height: 1; /* Adjust line-height for finer spacing control */
+/* --- Apply Variables to Existing Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-background);  /* Use variables */
+    color: var(--color-text);
 }
 
-#quran-text span {
-    margin-right: 0.1em; 
-    /* or */
-    /* border-right: 1px solid #ddd;  */ /* Use this if you prefer a vertical line */
+h1, h2, h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: var(--color-heading); /* Added this line */
 }
 
-/*... other styles... */
+/*  Header */
+header {
+    background-color: var(--color-header-bg);
+    color: var(--color-header-text);
+    /* ... (rest of your header styles) ... */
+}
+ .header-top {
+       background-color: var(--color-nav-bg);
+
+    }
+.lang-btn{
+   color:var(--color-nav-text);
+}
+
+/* --- Lang hover,focus btn ----*/
+
+/*Lang btn hover & focus */
+.lang-btn:hover,
+  .lang-btn:focus {
+   background-color:  var(--color-background); /*use variable*/
+    color: var(--color-text);         /* use varaible */
+ }
+
+
+#masjid-name .en{
+  color:var(--color-header-text);/*use the text varaibel */
+}
+#masjid-name .ar {
+    color: var(--color-header-ar);
+}
+
+/* --- Navigation --- */
+#main-nav {
+    background-color: var(--color-nav-bg);
+    color: var(--color-nav-text);
+    /* ... (rest of your navigation styles) ... */
+}
+
+#main-nav a {
+    color: var(--color-nav-text);
+    /* ... (rest of your link styles) ... */
+}
+
+#main-nav a:hover,
+#main-nav a:focus {
+    background-color: var(--color-nav-hover-bg);
+    color: var(--color-nav-hover-text);
+}
+
+/* --- Toggle Button --- */
+#nav-toggle {
+    background-color: var(--color-button-bg);
+    color: var(--color-button-text);
+    /* ... (rest of your button styles) ... */
+}
+
+#nav-toggle:hover,
+#nav-toggle:focus {
+    background-color: var(--color-button-hover-bg);
+}
+
+.button {
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+    border-color: var(--color-button-border);
+     /* ... (Rest of styles) */
+}
+ .button:hover,
+    .button:focus {
+       background-color: var(--color-button-hover-bg);
+    }
+
+/*---Loading Indidcator---*/
+#loading-indicator{
+    background-color:  var(--color-background);
+    /*Use the varaiable for color, ensuring consistent loading backgroung*/
+
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    /* ... (rest of your footer styles) ... */
+}
+
+/*---About Sections---*/
+#about{
+      background-color:  var(--color-section-bg);
+      color:var(--color-text);
+
+}
+/*---Prayer-time section---*/
+
+#prayer-times-table {
+    background-color:var(--color-section-bg);
+
+}
+/*---Event Section---*/
+#events{
+      background-color:  var(--color-section-bg);
+
+}
+
+.event{
+       background-color:  var(--color-ramadan-card-bg);  /*Make variable Consistent*/
+      color:var(--color-text);
+      /*Use variables*/
+}
+.event h3 {
+     color: var(--color-heading);/* Use consistent variable*/
+
+}
+/*---Event Hover--*/
+
+#contact{
+      background-color: var(--color-section-bg);
+      color:var(--color-text);/*consistent varaible*/
+}
+.social-links a {
+       background-color:  var(--color-social-link-bg);/*consistent Green */
+      color: var(--color-text);
+
+}
+/* --- SOcial Links--- */
+.social-links a:hover{
+    background-color:  var(--color-social-link-hover-bg);
+}
+#contact p{
+  color: var(--color-text);
+
+}
+
+/*---Quran Container---*/
+#quran-container{
+    border: 2px solid  var(--color-quran-border) ;/*Variable*/
+    background-color: var(--color-quran-bg);
+
+}
+#quran-text p{
+      color:var(--color-text);
+}
+
+#quran-page-pattern{
+  /*Keep original styling but just background color opacity*/
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23006400' fill-opacity='0.03'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41 2.83-2.83L3.41 31.76l1.42-1.42 2.82 2.82L8.4 27.53l-1.41-1.41-2.83 2.83 2.83 2.83-1.42 1.41L.58 35.76 2 37.17 0 38.59zM0 1.4l2.83 2.83 1.41-1.41L6.63 4l-2.82 2.83-1.42-1.42L.59 8.24l1.42 1.41 2.82-2.82L8.4 12.47l-1.41 1.41-2.83-2.83 2.83-2.83-1.42-1.41L.58 4.24 2 2.83 0 1.41zM12 27.46l14-14-1.41-1.41-14 14 1.41 1.41zm0-22l14 14-1.41 1.41-14-14 1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+
+}
+
+ /* ---- Select and btns ----- */
+/*---In controls select ---*/
+
+#controls select,
+#controls button{
+   background-color: var(--color-section-bg);  /* Apply variable background */
+    color: var(--color-text);  /* Variable color*/
+    border: 1px solid var(--color-text); /* Border colour */
+    /* --- rest of property ---- */
+}
+#controls select:focus,
+#controls button:focus,
+#controls select:hover,
+#controls button:hover {
+    border-color: var(--color-heading);/*varaiable Focus */
+}
+/*Style prev & Next Btns*/
+
+#prev-surah-bten, #next-surah-bten{
+  background-color:var(--color-social-link-bg);/*variable consistent*/
+    /*---rest of properties--*/
+
+}
+#prev-surah-bten:hover, #next-surah-bten:hover{
+    background-color:var(--color-heading) ;/*variable consistent */
+}
+#quran-text{
+    background-color:  var(--color-quran-bg);/*backround quran variable*/
+
+}
+
+section h2{
+ color: var(--color-heading);
+
+}
+/* Style Ramadan Activities*/
 
 #ramadan {
-    /* Add styles for the Ramadan section */
-    background-color: #f5f5f5;
-    border-radius: 15px;
-    padding: 3rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}.ramadan-activities {
-    /* Add styles for the activities container */
-    display: grid;
-    gap: 1.5rem;
-}.ramadan-activities h3 {
-    font-family: 'Amiri', serif;
-    color: #006400;
-    margin-bottom: 0.5rem;
-}.ramadan-activity {
-    /* Add styles for individual activities */
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}.ramadan-activity h4 {
-    font-family: 'Amiri', serif;
-    color: #006400;
-    margin-bottom: 0.5rem;
+    background-color:var(--color-section-bg);/*Consistent background */
+    /* ----  Rest of properties ---- */
 }
 
-/*... other styles... */
+.ramadan-activity{
+    background-color:  var(--color-ramadan-card-bg); /*Dark variable color for card.*/
+    color:var(--color-text);/*light-text*/
+    border-color:  var(--color-border);/*consistent border color */
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    /*... other responsive styles... */
+}
+#ramadan p{
+  color:var(--color-text);
 
-    nav ul {
-        display: none; /* Hide the navigation list by default */
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 100%; /* Position the dropdown below the header */
-        left: 0;
-        width: 100%;
-        background-color: #262626; /* Match header background */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        border-radius: 0 0 10px 10px; /* Optional: Rounded corners */
-    }
+}
 
-    nav ul li {
-        margin: 0.5rem 0;
-        width: 100%; /* Make list items full width */
-    }
+#prayer-times-table th {
+  /*---Style of prayer table*/
+    background-color:var(--color-table-header-bg);/*variable table head*/
+    color:var(--color-table-header-text);/*use varaible color*/
+     border: 1px solid var(--color-nav-text);
 
-    nav a {
-        display: block;
-        padding: 1rem;
-        border-bottom: 1px solid #333; /* Optional: Separator between items */
-    }
+}
+ #prayer-times-table td{
+  color:var(--color-text);
+ }
 
-    /* Show the navigation list when the header is hovered or focused */
-    header:hover nav ul,
-    header:focus-within nav ul {
-        display: flex;
-    }
+
+/* ----Theme togle button ----- */
+#theme-toggle {
+  position: relative;   /*Allow icon Positinig*/
+    background: transparent;/* Remove button*/
+    border:none;/*none border*/
+    padding:0;/*No Pading*/
+    font-size:1rem;/*icon Size */
+     color:var(--color-button-hover-bg);
+    cursor: pointer;
+     /*position button container right above lang*/
+    top:0;/*allgin vertically */
+    display: flex;
+    margin-right:.75rem;/*push towards to align right-flag*/
+
+}
+/* --- Theme Icons-- */
+#theme-toggle img{
+   width: 25px;     /*Control icon size using width/height*/
+   height:25px;
+}
+
+/*-- Icons visisble depending theme state*/
+/*Show the Correct icon, hide the inactive*/
+.theme-icon-light,
+.dark-theme .theme-icon-dark{
+   display:inline-block;/*or: flex;*/
+
+}
+
+.dark-theme .theme-icon-light,
+.theme-icon-dark {
+    display: none;
+}
+/* Initially hide transliteration by default */
+.transliteration-word {
+    display: none; /* Hide by Default*/
+}
+/* Show/Hide the word parts */
+.arabic-word {
+    display: inline; /*  Visible by default (controlled by JS) */
 }
