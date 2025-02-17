@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagotville Masjid - Quran</title>
+    <title>Bagotville Masjid - Home</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Read the Holy Quran online with translation.">
+    <meta name="description" content="Welcome to the Bagotville Masjid website. A center for faith, community, and learning.">
 </head>
 <body>
     <div id="loading-indicator">
@@ -20,10 +20,11 @@
                 <button data-lang="en" class="lang-btn active"><img src="en-flag.png" alt="English"> English</button> |
                 <button data-lang="ar" class="lang-btn"><img src="ar-flag.png" alt="Arabic"> العربية</button>
             </div>
-              <button id="theme-toggle" aria-label="Toggle Dark Mode">
-            <span class="theme-icon-light"><img src="sun.svg" alt="Light Mode"></span>
-            <span class="theme-icon-dark"><img src="moon.svg" alt="Dark Mode"></span>
-             </button>
+             <button id="theme-toggle" aria-label="Toggle Dark Mode"> <!-- Add this button -->
+                    <span class="theme-icon-light"><img src="sun.svg" alt="Light Mode"></span> <!--Use appropriate img  -->
+                    <span class="theme-icon-dark"><img src="moon.svg" alt="Dark Mode"></span> <!-- Use appropriate img -->
+              </button>
+        </div>
         </div>
         <h1 id="masjid-name">
             <span lang="ar" dir="rtl" class="ar">مسجد باغوتفيل</span><br>
@@ -35,6 +36,11 @@
             <span class="ar" lang="ar" dir="rtl">القائمة</span>
         </button>
 
+        <!--  <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav"> REMOVE DUPLICATE BUTTON
+            <span class="en">Menu</span>
+            <span class="ar" lang="ar" dir="rtl">القائمة</span>
+        </button> -->
+        
         <nav id="main-nav">
             <ul>
                 <li><a href="index.html"><span class="en">Home</span><span class="ar" lang="ar" dir="rtl">الرئيسية</span></a></li>
@@ -49,22 +55,16 @@
     </header>
 
     <main>
-        <section id="quran">
-            <h2 class="en">Read the Holy Quran</h2>
-            <h2 class="ar" lang="ar" dir="rtl">اقرأ القرآن الكريم</h2>
-            <div id="quran-container">
-                <div id="controls">
-                    <label for="surah-select" class="en">Select Surah:</label>
-                    <label for="surah-select-ar" class="ar" lang="ar" dir="rtl">اختر السورة</label>
-                    <select id="surah-select"></select>
-
-                    <button id="prev-surah-bten" class="en">Previous Surah</button>
-                    <button id="prev-surah-btar" class="ar" lang="ar" dir="rtl">السورة السابقة</button>
-                    <button id="next-surah-bten" class="en">Next Surah</button>
-                    <button id="next-surah-btar" class="ar" lang="ar" dir="rtl">السورة التالية</button>
-
+        <section id="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2 class="en">Welcome to Bagotville Masjid</h2>
+                    <h2 class="ar" lang="ar" dir="rtl">مرحبا بكم في مسجد باغوتفيل</h2>
+                    <p class="en">A Center for Faith, Community, and Learning</p>
+                    <p class="ar" lang="ar" dir="rtl">مركز للإيمان والمجتمع والتعلم</p>
+                    <a href="about.html" class="button en">Learn More</a>
+                    <a href="about.html" class="button ar" lang="ar" dir="rtl">تعلم المزيد</a>
                 </div>
-                <div id="quran-text"></div>
             </div>
         </section>
     </main>
