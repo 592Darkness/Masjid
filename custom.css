@@ -1,0 +1,1155 @@
+/**
+ * Car Dealership Custom CSS
+ * Save this file as custom.css in your child theme
+ */
+
+/* General Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.button, 
+button.alt, 
+input[type="button"].alt, 
+input[type="reset"].alt, 
+input[type="submit"].alt {
+    display: inline-block;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.button:hover, 
+button.alt:hover, 
+input[type="button"].alt:hover, 
+input[type="reset"].alt:hover, 
+input[type="submit"].alt:hover {
+    background-color: #c9302c;
+    color: #fff;
+    text-decoration: none;
+}
+
+.button.secondary {
+    background-color: #5bc0de;
+}
+
+.button.secondary:hover {
+    background-color: #31b0d5;
+}
+
+/* Header Customization */
+.dealership-topbar {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.dealership-topbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dealership-topbar .contact-info {
+    display: flex;
+    gap: 15px;
+}
+
+.dealership-topbar .contact-info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.dealership-topbar .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.dealership-topbar .social-icons a {
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Vehicle Archive Page */
+.vehicle-archive-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.vehicle-filters {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.vehicle-filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-submit {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.reset-button {
+    color: #666;
+    text-decoration: underline;
+}
+
+.vehicle-results {
+    width: 100%;
+}
+
+.vehicle-sort {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.vehicles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.vehicle-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.vehicle-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.vehicle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover .vehicle-image img {
+    transform: scale(1.05);
+}
+
+.financing-badge {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background-color: #5cb85c;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.vehicle-details {
+    padding: 15px;
+}
+
+.vehicle-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.vehicle-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.vehicle-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.vehicle-name {
+    font-weight: 500;
+    margin: 0;
+}
+
+.vehicle-type {
+    background-color: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #666;
+}
+
+.vehicle-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d9534f;
+    margin: 10px 0;
+}
+
+.vehicle-specs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+.vehicle-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.view-details {
+    width: 100%;
+}
+
+.calculate-financing {
+    width: 100%;
+    background-color: #5bc0de;
+}
+
+.calculate-financing:hover {
+    background-color: #31b0d5;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.pagination .page-numbers {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 3px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+    border-radius: 3px;
+}
+
+.pagination .page-numbers.current {
+    background-color: #d9534f;
+    color: white;
+    border-color: #d9534f;
+}
+
+.pagination .page-numbers:hover:not(.current) {
+    background-color: #f5f5f5;
+}
+
+/* Single Vehicle Page */
+.single-vehicle-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.vehicle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.vehicle-title-container {
+    flex: 1;
+}
+
+.vehicle-title {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.vehicle-price-container {
+    text-align: right;
+}
+
+.vehicle-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #d9534f;
+    margin: 0;
+}
+
+.vehicle-msrp {
+    font-size: 16px;
+    color: #666;
+    text-decoration: line-through;
+    margin-top: 5px;
+}
+
+.vehicle-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.vehicle-gallery {
+    flex: 1;
+    min-width: 300px;
+}
+
+.vehicle-main-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.vehicle-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vehicle-thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px #d9534f;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vehicle-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+.vehicle-specs {
+    margin-bottom: 30px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.spec-value {
+    font-size: 16px;
+}
+
+.vehicle-features {
+    margin-bottom: 30px;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding-left: 25px;
+}
+
+.vehicle-description {
+    margin-bottom: 30px;
+}
+
+.vehicle-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.vehicle-actions .button {
+    min-width: 150px;
+}
+
+.add-to-cart {
+    background-color: #5cb85c;
+}
+
+.add-to-cart:hover {
+    background-color: #4cae4c;
+}
+
+.inquiry {
+    background-color: #d9534f;
+}
+
+.call-us {
+    background-color: #337ab7;
+}
+
+.call-us:hover {
+    background-color: #286090;
+}
+
+/* Financing Calculator */
+.vehicle-financing {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 6px;
+    margin-bottom: 40px;
+}
+
+.financing-calculator {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.calculator-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.calculator-results {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.result-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.result-group:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.financing-note {
+    margin-top: 20px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Vehicle Inquiry Form */
+.vehicle-inquiry {
+    margin-bottom: 40px;
+}
+
+.inquiry-form {
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    height: 120px;
+}
+
+.check-group {
+    display: flex;
+    align-items: flex-start;
+}
+
+.check-group input {
+    width: auto;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+/* Related Vehicles */
+.related-vehicles {
+    margin-top: 40px;
+}
+
+.related-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.related-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.related-card .vehicle-image {
+    height: 160px;
+}
+
+.related-card .vehicle-title {
+    font-size: 16px;
+}
+
+/* Financing Application Page */
+.financing-application-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.financing-process {
+    margin-bottom: 40px;
+}
+
+.process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.process-step {
+    flex: 1;
+    min-width: 180px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #d9534f;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.step-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.step-content p {
+    margin: 0;
+    color: #666;
+}
+
+.required-documents {
+    margin-bottom: 40px;
+}
+
+.documents-list {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.documents-list li {
+    margin-bottom: 8px;
+}
+
+.financing-application-form {
+    margin-top: 40px;
+}
+
+.form-success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.application-form {
+    margin-top: 20px;
+}
+
+.form-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.section-note {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.required {
+    color: #d9534f;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-application {
+    padding: 12px 30px;
+    font-size: 16px;
+}
+
+/* Vehicle Parts Shop */
+.vehicle-compatibility-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.vehicle-makes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.vehicle-make-item {
+    flex: 1;
+    min-width: 200px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.vehicle-make-item h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.vehicle-models-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.vehicle-model-item {
+    margin-bottom: 5px;
+}
+
+.compatibility-manual-entry {
+    margin-top: 20px;
+}
+
+.part-compatibility {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+
+.part-compatibility h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.part-compatibility ul {
+    columns: 2;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.part-compatibility li {
+    margin-bottom: 5px;
+}
+
+.manual-compatibility {
+    margin-top: 15px;
+    border-top: 1px solid #c5e1e8;
+    padding-top: 15px;
+}
+
+.manual-compatibility h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.parts-filter-form {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.part-number {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+    padding: 5px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .vehicle-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .vehicle-price-container {
+        text-align: left;
+        margin-top: 10px;
+    }
+    
+    .vehicle-main-image {
+        height: 250px;
+    }
+    
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .financing-calculator {
+        flex-direction: column;
+    }
+    
+    .process-steps {
+        flex-direction: column;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vehicles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .vehicle-actions {
+        flex-direction: column;
+    }
+    
+    .vehicle-thumbnails {
+        justify-content: center;
+    }
+}
+
+/* Homepage Styles */
+.home-slider {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    margin-bottom: 40px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 30px;
+    max-width: 500px;
+    margin-left: 5%;
+    border-radius: 6px;
+}
+
+.slide-title {
+    font-size: 32px;
+    margin: 0 0 15px 0;
+}
+
+.slide-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.home-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #d9534f;
+    margin: 15px auto 0;
+}
+
+.featured-vehicles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 30px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+    font-size: 48px;
+    color: #d9534f;
+    margin-bottom: 20px;
+}
+
+.service-title {
+    margin: 0 0 15px 0;
+}
+
+.service-description {
+    color: #666;
+}
+
+.testimonials {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.testimonial-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.testimonial-slide {
+    text-align: center;
+    padding: 0 40px;
+    display: none;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.testimonial-content {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-weight: 600;
+}
+
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.testimonial-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.testimonial-dot.active {
+    background-color: #d9534f;
+}
+
+.cta-section {
+    background-color: #d9534f;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 32px;
+    margin: 0 0 20px 0;
+}
+
+.cta-description {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    background-color: white;
+    color: #d9534f;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f8f9fa;
+    color: #c9302c;
+}
+
+.brands-section {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+}
+
+.brands-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.brand-logo {
+    max-width: 120px;
+    height: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.brand-logo:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .home-slider {
+        height: 400px;
+    }
+    
+    .slide-content {
+        max-width: 90%;
+        margin-left: 5%;
+        padding: 20px;
+    }
+    
+    .slide-title {
+        font-size: 24px;
+    }
+    
+    .service-card {
+        padding: 20px 15px;
+    }
+    
+    .cta-title {
+        font-size: 28px;
+    }
+    
+    .cta-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-slider {
+        height: 300px;
+    }
+    
+    .slide-content {
+        padding: 15px;
+    }
+    
+    .slide-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .slide-description {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .brands-grid {
+        gap: 20px;
+    }
+    
+    .brand-logo {
+        max-width: 80px;
+    }
+}

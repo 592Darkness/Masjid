@@ -1,0 +1,364 @@
+/*
+Theme Name: Car Dealership Child Theme
+Theme URI: https://yourwebsite.com/
+Description: A child theme for creating a car dealership website in Guyana
+Author: Your Name
+Author URI: https://yourwebsite.com/
+Template: astra
+Version: 1.0.0
+Text Domain: cardealership-child
+*/
+
+/* Import parent theme styles */
+@import url("../astra/style.css");
+
+/* 
+ * Basic overrides for the parent theme 
+ * Most custom styles are in css/custom.css
+ */
+
+/* Header styles */
+.site-header {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.site-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    animation: slideDown 0.5s;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.site-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.my-account-link,
+.cart-contents,
+.financing-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.my-account-link:hover,
+.cart-contents:hover,
+.financing-link:hover {
+    color: #d9534f;
+}
+
+.cart-count {
+    display: inline-block;
+    background-color: #d9534f;
+    color: #fff;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+}
+
+/* Footer styles */
+.site-footer {
+    color: #fff;
+}
+
+.footer-top {
+    background-color: #333;
+    padding: 50px 0;
+}
+
+.footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.footer-widget-title {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.footer-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 10px;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-menu a:hover {
+    color: #d9534f;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background-color: #d9534f;
+    transform: translateY(-3px);
+}
+
+.footer-contact-info p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-contact-info i {
+    color: #d9534f;
+    margin-top: 3px;
+}
+
+.footer-contact-info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-contact-info a:hover {
+    color: #d9534f;
+}
+
+.footer-newsletter p {
+    margin-bottom: 15px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.newsletter-submit {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-submit:hover {
+    background-color: #c9302c;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-bottom-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-bottom-links a:hover {
+    color: #d9534f;
+}
+
+.payment-methods img {
+    height: 24px;
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: -50px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #d9534f;
+    color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    bottom: 20px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #c9302c;
+    color: #fff;
+}
+
+/* Newsletter message */
+.newsletter-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    max-width: 300px;
+    z-index: 999;
+    animation: fadeInUp 0.5s;
+}
+
+.newsletter-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.newsletter-error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .site-header-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .header-right {
+        width: 100%;
+        margin-top: 15px;
+        align-items: flex-start;
+    }
+    
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .main-navigation {
+        width: 100%;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        padding: 10px;
+        background-color: #f5f5f5;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .primary-menu-container {
+        display: none;
+        width: 100%;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .footer-bottom-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-actions {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
