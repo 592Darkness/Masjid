@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagotville Masjid - Gallery</title>
+    <meta name="description" content="View photos and videos from Bagotville Masjid in West Bank Demerara, Guyana, showcasing our community, events, and mosque interior.">
+    <meta name="keywords" content="Bagotville Masjid, gallery, Guyana, photos, videos, mosque, community events, hamper distribution, charity work">
+    <meta name="author" content="Bagotville Masjid">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bagotvillemasjid.org/gallery.html">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Bagotville Masjid - Gallery">
+    <meta property="og:description" content="View photos and videos from Bagotville Masjid in West Bank Demerara, Guyana, showcasing our community, events, and mosque interior.">
+    <meta property="og:image" content="https://bagotvillemasjid.org/images/masjid-hero-light.jpg">
+    <meta property="og:url" content="https://bagotvillemasjid.org/gallery.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bagotville Masjid - Gallery">
+    <meta name="twitter:description" content="View photos and videos from Bagotville Masjid in West Bank Demerara, Guyana, showcasing our community, events, and mosque interior.">
+    <meta name="twitter:image" content="https://bagotvillemasjid.org/images/masjid-hero-light.jpg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?=v1.2">
+    
+    <style>
+        /* Enhanced gallery styles to match theme */
+        .gallery-image {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: 100%;
+            height: auto;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .gallery-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+        
+        #image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        #modal-img {
+            max-width: 100%;
+            max-height: 85vh;
+            border: 2px solid white;
+            box-shadow: 0 5px 25px var(--shadow-color);
+            border-radius: 12px;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            line-height: 36px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Enhanced filter buttons to match theme */
+        .filter-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+        
+        .image-filter-btn, .video-filter-btn {
+            background: var(--card-bg);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+        
+        .image-filter-btn:hover, .video-filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+        
+        .image-filter-btn.active, .video-filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Gallery grid styling */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+        
+        /* Section styling */
+        #videos-section, #images-section {
+            padding: 1rem 0;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Video card styling to match theme */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            background-color: var(--light-gray);
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-thumbnail::before {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .video-thumbnail:hover img {
+            transform: scale(1.05);
+        }
+        
+        .video-thumbnail:hover::before {
+            background: var(--primary-color);
+            opacity: 1;
+        }
+        
+        .video-info {
+            padding: 1rem;
+        }
+        
+        .video-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        
+        .video-date {
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-category {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: rgba(var(--primary-color-rgb), 0.1);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Video modal styling to match theme */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+        
+        .modal-close:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .filter-wrapper {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .image-filter-btn, .video-filter-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #modal-img {
+                max-height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="images/bagotville-masjid-logo.png" alt="Bagotville Masjid Logo" width="60" height="60">
+                Bagotville Masjid
+            </div>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="quran.html">Quran</a></li>
+                <li><a href="prayer-times.html">Prayer Times</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="gallery">
+            <h1>Our Gallery</h1>
+            <p>Explore photos and videos from our masjid and community events.</p>
+            
+            <!-- Main Gallery Navigation -->
+            <div class="gallery-filter">
+                <select id="content-type-select" class="gallery-dropdown">
+                    <option value="videos">Videos</option>
+                    <option value="images">Images</option>
+                </select>
+            </div>
+            
+            <!-- Videos Section -->
+            <div id="videos-section" style="display: block;">
+                <h2>Videos</h2>
+                
+                <!-- Video Category Filters -->
+                <div class="filter-wrapper">
+                    <button class="video-filter-btn active" data-filter="all">All Videos</button>
+                    <button class="video-filter-btn" data-filter="quran">Quran Recitations</button>
+                    <button class="video-filter-btn" data-filter="taraweeh">Taraweeh Prayers</button>
+                    <button class="video-filter-btn" data-filter="outreach">Community Outreach</button>
+                    <button class="video-filter-btn" data-filter="events">Events</button>
+                </div>
+                
+                <!-- Video Grid -->
+                <div class="video-grid">
+                    <!-- Video Card 1 -->
+                    <div class="video-card" data-category="quran">
+                        <div class="video-thumbnail" data-video="videos/Hafiz_Muhammad_Quran_Recitation.mp4">
+                            <img src="images/thumbnails/quran-recitation-thumbnail.jpg" alt="Quran Recitation Thumbnail" loading="lazy">
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Quran Recitation</h3>
+                            <div class="video-meta">
+                                <span class="video-date">March 2025</span>
+                                <span class="video-duration">5:24</span>
+                            </div>
+                            <span class="video-category">Quran Recitation</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Card 2 -->
+                    <div class="video-card" data-category="taraweeh">
+                        <div class="video-thumbnail" data-video="videos/Taraweeh-03-05-25.mp4">
+                            <img src="images/thumbnails/taraweeh-thumbnail.jpg" alt="Taraweeh Prayer Thumbnail" loading="lazy">
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Taraweeh Prayer</h3>
+                            <div class="video-meta">
+                                <span class="video-date">March 5, 2025</span>
+                            </div>
+                            <span class="video-category">Taraweeh Prayer</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Card 3 -->
+                    <div class="video-card" data-category="taraweeh">
+                        <div class="video-thumbnail" data-video="videos/Taraweeh-03-09-25.mp4">
+                            <img src="images/thumbnails/taraweeh-thumbnail3-11.jpg" alt="Taraweeh Prayer Thumbnail 03-09-25" loading="lazy">
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Taraweeh Prayer</h3>
+                            <div class="video-meta">
+                                <span class="video-date">March 9, 2025</span>
+                            </div>
+                            <span class="video-category">Taraweeh Prayer</span>
+                        </div>
+                    </div>
+                    <!-- New Hamper Distribution Video Card -->
+                    <div class="video-card" data-category="outreach">
+                        <div class="video-thumbnail" data-video="videos/Hamper2025.mp4">
+                            <img src="images/thumbnails/Hamper.jpg" alt="Hamper Distribution Thumbnail" loading="lazy">
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Hamper Distribution 2025</h3>
+                            <div class="video-meta">
+                                <span class="video-date">March 2025</span>
+                                <span class="video-duration">3:45</span>
+                            </div>
+                            <span class="video-category">Community Outreach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Images Section -->
+            <div id="images-section" style="display: none;">
+                <h2>Images</h2>
+                
+                <!-- Image Category Filters -->
+                <div class="filter-wrapper">
+                    <button class="image-filter-btn active" data-filter="all">All Images</button>
+                    <button class="image-filter-btn" data-filter="masjid">Masjid</button>
+                    <button class="image-filter-btn" data-filter="outreach">Community Outreach</button>
+                </div>
+                
+                <div class="gallery-grid">
+                    <!-- Masjid Images -->
+                    <img class="gallery-image" src="images/New_Carpet.jpg" alt="Bagotville Masjid Interior" data-category="masjid">
+                    
+                    <img class="gallery-image" src="images/Bagotville-masjid-community.jpg" alt="Bagotville Masjid Community" data-category="masjid">
+                    
+                    <img class="gallery-image" src="images/Masjid-side-view.jpg" alt="Bagotville Masjid Side View" data-category="masjid">
+                    
+                    <!-- Hamper Distribution Images -->
+                    <img class="gallery-image" src="images/Hamper2025(1).jpg" alt="Hamper Distribution 2025" data-category="outreach">
+                    
+                    <img class="gallery-image" src="images/Hamper2025(2).jpg" alt="Hamper Distribution - Families Receiving Aid" data-category="outreach">
+                    
+                    <img class="gallery-image" src="images/Hamper2025(3).jpg" alt="Hamper Distribution - Volunteers" data-category="outreach">
+                    
+                    <img class="gallery-image" src="images/Hamper2025(4).jpg" alt="Hamper Distribution - Community Impact" data-category="outreach">
+                </div>
+            </div>
+            
+            <!-- Video Modal -->
+            <div class="video-modal" id="video-modal">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close video">&times;</button>
+                    <video controls id="modal-video">
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            
+            <!-- Image Modal -->
+            <div id="image-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <img id="modal-img" src="" alt="Enlarged Image">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Bagotville Masjid. All rights reserved.</p>
+        <p>Lot 147 Public Road, Bagotville, West Bank Demerara, Guyana | +592-626-6780 | contactus@bagotvillemajid.org</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/profile.php?id=100081668231878" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="#" title="Coming soon">Twitter</a>
+            <a href="#" title="Coming soon">Instagram</a>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+    <script>
+    // Simple gallery script that handles both filtering and previews
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Themed gallery script loaded');
+        
+        // Content Type Toggle (Videos/Images)
+        const contentSelect = document.getElementById('content-type-select');
+        const videosSection = document.getElementById('videos-section');
+        const imagesSection = document.getElementById('images-section');
+        
+        contentSelect.addEventListener('change', function() {
+            if (this.value === 'videos') {
+                videosSection.style.display = 'block';
+                imagesSection.style.display = 'none';
+            } else {
+                videosSection.style.display = 'none';
+                imagesSection.style.display = 'block';
+            }
+        });
+        
+        // Video Filtering
+        const videoFilterBtns = document.querySelectorAll('.video-filter-btn');
+        const videoCards = document.querySelectorAll('.video-card');
+        
+        videoFilterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                videoFilterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter the video cards
+                videoCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Image Filtering
+        const imageFilterBtns = document.querySelectorAll('.image-filter-btn');
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        
+        imageFilterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                imageFilterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter the images
+                galleryImages.forEach(img => {
+                    if (filter === 'all' || img.getAttribute('data-category') === filter) {
+                        img.style.display = 'block';
+                    } else {
+                        img.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Video Modal
+        const videoModal = document.getElementById('video-modal');
+        const modalVideo = document.getElementById('modal-video');
+        const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+        const videoModalClose = document.querySelector('.modal-close');
+        
+        videoThumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                const videoSrc = this.getAttribute('data-video');
+                const videoSource = modalVideo.querySelector('source');
+                videoSource.src = videoSrc;
+                modalVideo.load();
+                videoModal.style.display = 'flex';
+                modalVideo.play().catch(err => {
+                    console.log('Video autoplay prevented. Click to play.');
+                });
+            });
+        });
+        
+        videoModalClose.addEventListener('click', function() {
+            modalVideo.pause();
+            videoModal.style.display = 'none';
+        });
+        
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                modalVideo.pause();
+                videoModal.style.display = 'none';
+            }
+        });
+        
+        // Image Preview Modal
+        const imageModal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeModal = document.querySelector('.close-modal');
+        
+        // Add click event to all gallery images
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                imageModal.style.display = 'flex';
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+        
+        // Close modal when X is clicked
+        closeModal.addEventListener('click', function() {
+            imageModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the image
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+        
+        // Close modals with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                imageModal.style.display = 'none';
+                
+                if (videoModal.style.display === 'flex') {
+                    modalVideo.pause();
+                    videoModal.style.display = 'none';
+                }
+            }
+        });
+        
+        console.log('Themed gallery initialization complete');
+    });
+    </script>
+</body>
+</html>

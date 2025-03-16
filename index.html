@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagotville Masjid - Home</title>
+    <meta name="description" content="Welcome to Bagotville Masjid, serving the Muslim community in West Bank Demerara, Guyana since 1913. Learn about our history, mission, prayer times, events, and community services.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- DNS Prefetch and Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css?v=1.1" as="style">
+    <link rel="preload" href="fonts/playfair-display-v30-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="images/masjid-hero-light-400.avif" as="image" media="(max-width: 600px)" fetchpriority="high">
+    <link rel="preload" href="images/masjid-hero-light-400.webp" as="image" media="(max-width: 600px)" fetchpriority="high">
+    <!-- Optimized Google Fonts with font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" crossorigin>
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
+    <!-- Meta tags -->
+    <meta name="keywords" content="Bagotville, Bagotville Masjid, Guyana, West Bank Demerara, Muslim community, prayer times, Islamic events, donations, education, history, mission">
+    <meta name="author" content="Bagotville Masjid">
+    <meta name="robots" content="index, follow">
+    <!-- Updated Canonical URL - removed index.html -->
+    <link rel="canonical" href="https://bagotvillemasjid.org/">
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Bagotville Masjid - Home">
+    <meta property="og:description" content="Welcome to Bagotville Masjid, serving the Muslim community in West Bank Demerara, Guyana since 1913.">
+    <meta property="og:image" content="https://bagotvillemasjid.org/images/masjid-hero-light-800.webp">
+    <meta property="og:url" content="https://bagotvillemasjid.org/">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bagotville Masjid - Home">
+    <meta name="twitter:description" content="Welcome to Bagotville Masjid, serving the Muslim community in West Bank Demerara, Guyana since 1913.">
+    <meta name="twitter:image" content="https://bagotvillemasjid.org/images/masjid-hero-light-800.webp">
+    <!-- Inline Critical CSS for above-the-fold content -->
+    <style>
+        /* Critical CSS for hero, navigation, and h1 */
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #FF6F61;
+            --background-color: #F5F6F5;
+            --text-color: #2C3E50;
+            --light-gray: #E8ECEF;
+            --shadow-color: rgba(0, 0, 0, 0.15);
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 4px 20px var(--shadow-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 60px;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .hero {
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), var(--light-gray);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 1;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            display: inline-block;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px var(--shadow-color);
+            margin-bottom: 0.8rem;
+        }
+        .hero-content p {
+            font-size: 0.9rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem 1rem;
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+            .logo img {
+                height: 40px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+            .hero-content {
+                padding: 1.5rem;
+            }
+            .logo img {
+                height: 35px;
+            }
+        }
+    </style>
+    <!-- Non-critical CSS with media attribute for async loading -->
+    <link rel="stylesheet" href="css/styles.css?v=1.1" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/styles.css?v=1.1"></noscript>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="images/bagotville-masjid-logo.png" alt="Bagotville Masjid Logo" width="60" height="60">
+                Bagotville Masjid
+            </div>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="quran.html">Quran</a></li>
+                <li><a href="prayer-times.html">Prayer Times</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-image">
+                <!-- Light Theme Hero Image - Optimized with AVIF, WebP and responsive sizes -->
+                <picture>
+                    <!-- Mobile - Small Size -->
+                    <source
+                        media="(max-width: 600px)"
+                        type="image/avif"
+                        srcset="images/masjid-hero-light-400.avif">
+                    <source
+                        media="(max-width: 600px)"
+                        type="image/webp"
+                        srcset="images/masjid-hero-light-400.webp">
+                    <source
+                        media="(max-width: 600px)"
+                        srcset="images/masjid-hero-light-400.jpg">
+                    <!-- Tablet - Medium Size -->
+                    <source
+                        media="(max-width: 1024px)"
+                        type="image/avif"
+                        srcset="images/masjid-hero-light-800.avif">
+                    <source
+                        media="(max-width: 1024px)"
+                        type="image/webp"
+                        srcset="images/masjid-hero-light-800.webp">
+                    <source
+                        media="(max-width: 1024px)"
+                        srcset="images/masjid-hero-light-800.jpg">
+                    <!-- Desktop - Full Size -->
+                    <source
+                        type="image/avif"
+                        srcset="images/masjid-hero-light.avif">
+                    <source
+                        type="image/webp"
+                        srcset="images/masjid-hero-light.webp">
+                    <!-- Fallback -->
+                    <img
+                        src="images/masjid-hero-light.jpg"
+                        alt="Bagotville Masjid Exterior (Light Theme)"
+                        class="light-theme-image"
+                        width="1280"
+                        height="720"
+                        fetchpriority="high"
+                        loading="eager">
+                </picture>
+                <!-- Dark Theme Hero Image - Optimized with AVIF, WebP and responsive sizes -->
+                <picture>
+                    <!-- Mobile - Small Size -->
+                    <source
+                        media="(max-width: 600px)"
+                        type="image/avif"
+                        srcset="images/masjid-hero-dark-400.avif">
+                    <source
+                        media="(max-width: 600px)"
+                        type="image/webp"
+                        srcset="images/masjid-hero-dark-400.webp">
+                    <source
+                        media="(max-width: 600px)"
+                        srcset="images/masjid-hero-dark-400.jpg">
+                    <!-- Tablet - Medium Size -->
+                    <source
+                        media="(max-width: 1024px)"
+                        type="image/avif"
+                        srcset="images/masjid-hero-dark-800.avif">
+                    <source
+                        media="(max-width: 1024px)"
+                        type="image/webp"
+                        srcset="images/masjid-hero-dark-800.webp">
+                    <source
+                        media="(max-width: 1024px)"
+                        srcset="images/masjid-hero-dark-800.jpg">
+                    <!-- Desktop - Full Size -->
+                    <source
+                        type="image/avif"
+                        srcset="images/masjid-hero-dark.avif">
+                    <source
+                        type="image/webp"
+                        srcset="images/masjid-hero-dark.webp">
+                    <!-- Fallback -->
+                    <img
+                        src="images/masjid-hero-dark.jpg"
+                        alt="Bagotville Masjid Exterior (Dark Theme)"
+                        class="dark-theme-image"
+                        width="1280"
+                        height="720"
+                        loading="lazy">
+                </picture>
+            </div>
+            <div class="hero-content">
+                <h1>Welcome to Bagotville Masjid</h1>
+                <p>Your community masjid in West Bank Demerara, Guyana</p>
+            </div>
+        </section>
+        <section class="quick-links">
+            <div class="card">
+                <h2>Prayer Times</h2>
+                <p>View today's prayer schedule</p>
+                <a href="prayer-times.html" class="button">View Prayer Times</a>
+            </div>
+            <div class="card">
+                <h2>Events</h2>
+                <p>See upcoming events</p>
+                <a href="events.html" class="button">Explore Events</a>
+            </div>
+            <div class="card">
+                <h2>Donate</h2>
+                <p>Support the masjid</p>
+                <a href="donations.html" class="button">Make a Donation</a>
+            </div>
+        </section>
+        <section class="about-snippet">
+            <h2>About Bagotville Masjid</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our History</h2>
+                    <p>Established in 1913, Bagotville Masjid has been a cornerstone of the Muslim community in West Bank Demerara, Guyana, growing from a small congregation to a vibrant center for worship and unity over its 112-year history.</p>
+                    <h2>Our Mission</h2>
+                    <p>We are committed to fostering a welcoming environment for prayer, education, and community engagement while upholding Islamic values.</p>
+                    <h2>Leadership</h2>
+                    <p>Bagotville Masjid is currently led by our esteemed Imam and Scholar, Yahya Mohammed, who guides our community with wisdom, knowledge, and dedication to Islamic teachings and community service.</p>
+                </div>
+                <!-- NEW STAFF SHOWCASE SECTION - REPLACES TEAM INFO -->
+                <section class="staff-showcase">
+                    <h2>Our Team</h2>
+                    <div class="staff-container">
+                        <div class="staff-card">
+                            <div class="staff-image-wrapper">
+                                <img src="images/Yahya-Mohammed.jpg" alt="Imam Yahya Mohammed" loading="lazy" width="300" height="300">
+                            </div>
+                            <div class="staff-info">
+                                <h3>Haafiz Yahya Mohammed</h3>
+                                <p class="staff-title">Imam & Scholar</p>
+                                <p class="staff-bio">Leading our community with wisdom and dedication to Islamic teachings and community service.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                           <div class="staff-image-wrapper">
+                               <img src="images/Abdool-Jahoor-Hamid.jpg" alt="Abdool Jahoor Hamid" loading="lazy" width="300" height="300">
+                            </div>
+                            <div class="staff-info">
+                               <h3>Abdool Jahoor Hamid</h3>
+                               <p class="staff-title">Assistant Imam</p>
+                               <p class="staff-bio">Supporting our community through religious guidance and educational programs.</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-image-wrapper">
+                                <img src="images/Abzal-Peters.jpg" alt="Abzal Peters" loading="lazy" width="300" height="300">
+                            </div>
+                            <div class="staff-info">
+                                <h3>Abzal Peters</h3>
+                                <p class="staff-title">Financial Director</p>
+                                <p class="staff-bio">Managing the masjid's financial affairs with integrity and dedication to our community's growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- END OF NEW STAFF SHOWCASE SECTION -->
+            </div>
+        </section>
+        <section class="latest-news">
+            <h2>Latest News</h2>
+            <div class="news-item">
+                <h3>Ramadan 2025: Taraweeh Prayers</h3>
+                <p>Join us every night at 7:35 PM for Taraweeh prayers during Ramadan.
+                   <strong>Can't attend in person?</strong> Watch our
+                   <a href="https://www.facebook.com/profile.php?id=100081668231878" target="_blank" rel="noopener">
+                   live stream on Facebook</a> starting at 7:35 PM nightly.</p>
+                <div class="live-badge">
+                    <span class="live-indicator">🔴</span> Streaming nightly during Ramadan
+                </div>
+            </div>
+            <div class="news-item">
+                <h3>Eid Celebration</h3>
+                <p>Join us for Eid prayers and festivities on March 31, 2025.</p>
+                <a href="news.html" class="button">Read Latest News</a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Bagotville Masjid. All rights reserved.</p>
+        <p>Lot 147 Public Road, Bagotville, West Bank Demerara, Guyana | +592-626-6780 | contactus@bagotvillemajid.org</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/profile.php?id=100081668231878" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="#" title="Coming soon">Twitter</a>
+            <a href="#" title="Coming soon">Instagram</a>
+        </div>
+    </footer>
+    <!-- Defer non-critical JavaScript -->
+    <script src="js/scripts.js" defer></script>
+</body>
+</html>

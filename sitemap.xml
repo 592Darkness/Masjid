@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/index.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://bagotvillemasjid.org/images/Yahya-Mohammed.jpg</image:loc>
+      <image:title>Imam Yahya Mohammed</image:title>
+      <image:caption>Imam &amp; Scholar at Bagotville Masjid</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bagotvillemasjid.org/images/Abzal-Peters.jpg</image:loc>
+      <image:title>Abzal Peters</image:title>
+      <image:caption>Financial Director at Bagotville Masjid</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Prayer Times Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/prayer-times.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Quran Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/quran.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Education Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/education.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Events Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/events.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/gallery.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>0.7</priority>
+    <!-- Main Gallery Images -->
+    <image:image>
+      <image:loc>https://bagotvillemasjid.org/images/New_Carpet.jpg</image:loc>
+      <image:title>Bagotville Masjid Interior</image:title>
+      <image:caption>New carpet installation at Bagotville Masjid</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bagotvillemasjid.org/images/Bagotville-masjid-community.jpg</image:loc>
+      <image:title>Bagotville Masjid Community</image:title>
+      <image:caption>Community gathering at Bagotville Masjid</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bagotvillemasjid.org/images/Masjid-side-view.jpg</image:loc>
+      <image:title>Bagotville Masjid Side View</image:title>
+      <image:caption>Exterior side view of Bagotville Masjid</image:caption>
+    </image:image>
+    
+    <!-- Videos -->
+    <video:video>
+      <video:thumbnail_loc>https://bagotvillemasjid.org/images/thumbnails/quran-recitation-thumbnail.jpg</video:thumbnail_loc>
+      <video:title>Quran Recitation</video:title>
+      <video:description>Beautiful Quran recitation at Bagotville Masjid</video:description>
+      <video:content_loc>https://bagotvillemasjid.org/videos/Hafiz_Muhammad_Quran_Recitation.mp4</video:content_loc>
+      <video:duration>324</video:duration>
+      <video:publication_date>2025-03-01T19:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:tag>Quran</video:tag>
+      <video:tag>Recitation</video:tag>
+      <video:tag>Islamic</video:tag>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://bagotvillemasjid.org/images/thumbnails/taraweeh-thumbnail.jpg</video:thumbnail_loc>
+      <video:title>Taraweeh Prayer</video:title>
+      <video:description>Taraweeh Prayer at Bagotville Masjid during Ramadan</video:description>
+      <video:content_loc>https://bagotvillemasjid.org/videos/Taraweeh-03-09-25.mp4</video:content_loc>
+      <video:duration>758</video:duration>
+      <video:publication_date>2025-03-09T19:35:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:tag>Taraweeh</video:tag>
+      <video:tag>Ramadan</video:tag>
+      <video:tag>Prayer</video:tag>
+    </video:video>
+  </url>
+  
+  <!-- Donations Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/donations.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://bagotvillemasjid.org/contact.html</loc>
+    <lastmod>2025-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+</urlset>

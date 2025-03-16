@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagotville Masjid - Education & Prayer Guide</title>
+    <meta name="description" content="Discover educational programs, Qur'an studies, comprehensive prayer guides, and ritual purification instructions at Bagotville Masjid in West Bank Demerara, Guyana.">
+    <meta name="keywords" content="Bagotville Masjid, education, prayer guide, Salah, Wudu, Ghusl, Guyana, Qur'an studies, Islamic learning, ritual bath, purification">
+    <meta name="author" content="Bagotville Masjid">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bagotvillemasjid.org/education.html">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Bagotville Masjid - Education & Prayer Guide">
+    <meta property="og:description" content="Discover educational programs, Qur'an studies, comprehensive prayer guides, and ritual purification instructions at Bagotville Masjid in West Bank Demerara, Guyana.">
+    <meta property="og:image" content="https://bagotvillemasjid.org/images/masjid-hero-light.jpg">
+    <meta property="og:url" content="https://bagotvillemasjid.org/education.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bagotville Masjid - Education & Prayer Guide">
+    <meta name="twitter:description" content="Discover educational programs, Qur'an studies, comprehensive prayer guides, and ritual purification instructions at Bagotville Masjid in West Bank Demerara, Guyana.">
+    <meta name="twitter:image" content="https://bagotvillemasjid.org/images/masjid-hero-light.jpg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Additional styles for prayer guide */
+        .prayer-guide-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .prayer-step {
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: rgba(var(--primary-color-rgb), 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .prayer-tip {
+            background: rgba(var(--primary-color-rgb), 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .prayer-tip h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .guide-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .guide-tab {
+            padding: 0.7rem 1.2rem;
+            background: var(--background-color);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .guide-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .guide-content {
+            display: none;
+        }
+        
+        .guide-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .prayer-step-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 1rem auto;
+            border-radius: 8px;
+        }
+        
+        .arabic-text {
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            direction: rtl;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .prayer-times-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .prayer-times-table th, .prayer-times-table td {
+            padding: 0.8rem;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .prayer-times-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .prayer-times-table tr:nth-child(even) {
+            background: rgba(var(--primary-color-rgb), 0.05);
+        }
+        
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-tabs {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .prayer-step {
+                padding: 1rem;
+            }
+        }
+        
+        .collapsible-section {
+            margin-bottom: 1rem;
+        }
+        
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .collapsible-content {
+            display: none;
+            padding: 1rem;
+            background: var(--background-color);
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .collapsible-section.active .collapsible-content {
+            display: block;
+        }
+        
+        .collapsible-header::after {
+            content: "+";
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .collapsible-section.active .collapsible-header::after {
+            content: "-";
+        }
+
+        /* New styles for Ghusl section */
+        .ghusl-step {
+            counter-increment: ghusl-steps;
+            position: relative;
+            padding: 1.5rem 1.5rem 1.5rem 3rem;
+            margin-bottom: 1.5rem;
+            background: rgba(var(--primary-color-rgb), 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .ghusl-step::before {
+            content: counter(ghusl-steps);
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .required-occasions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .occasion-card {
+            background: var(--card-bg);
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .occasion-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .occasion-card h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid rgba(var(--primary-color-rgb), 0.2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .hadith-quote {
+            font-style: italic;
+            padding: 1rem 1.5rem;
+            border-left: 3px solid var(--primary-color);
+            background: rgba(var(--primary-color-rgb), 0.03);
+            margin: 1.5rem 0;
+        }
+        
+        .hadith-source {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="images/bagotville-masjid-logo.png" alt="Bagotville Masjid Logo" width="60" height="60">
+                Bagotville Masjid
+            </div>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="quran.html">Quran</a></li>
+                <li><a href="prayer-times.html">Prayer Times</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="education">
+            <h1>Education Programs</h1>
+            <p>Explore our educational offerings, including Qur'an studies, Islamic learning opportunities, and comprehensive prayer guides at Bagotville Masjid.</p>
+            
+            <!-- Prayer Guide Section Content -->
+            <div id="prayer-guide" class="prayer-guide-section">
+                <h2 class="text-center">My Prayer: A Step-by-Step Guide</h2>
+                <p class="text-center">Learn the proper way to perform Salah (prayer) in Islam with this comprehensive guide for both men and women.</p>
+                
+                <div class="guide-tabs">
+                    <button class="guide-tab active" data-tab="importance">Importance of Prayer</button>
+                    <button class="guide-tab" data-tab="times">Prayer Times</button>
+                    <button class="guide-tab" data-tab="wudu">Wudu (Ablution)</button>
+                    <button class="guide-tab" data-tab="ghusl">Ghusl (Ritual Bath)</button>
+                    <button class="guide-tab" data-tab="prayer-steps">Prayer Steps</button>
+                    <button class="guide-tab" data-tab="surahs">Short Surahs</button>
+                </div>
+                
+                <!-- Importance of Prayer Section -->
+                <div id="importance" class="guide-content active">
+                    <h3>The Importance of Salah (Prayer)</h3>
+                    
+                    <div class="prayer-step">
+                        <p>Salah (Prayer) is one of the fundamental pillars of Islam. It was the first act of worship that was made obligatory by Allah ﷻ and it is the last thing to be taken away from the religion. When it perishes, Islam will perish.</p>
+                        
+                        <p>Its obligation was revealed directly to the Prophet ﷺ, during his ascension to the heaven and it was made obligatory upon every sane, adult Muslim. Salah is the first action that a believer will be questioned about, for the Messenger of Allah ﷺ said:</p>
+                        
+                        <blockquote>"The first act that the slave will be accountable for on the Day of Judgement will be prayer. If it is good, then the rest of his acts will be good. And if it is deficient, then the rest of his acts will be deficient".</blockquote>
+                    </div>
+                    
+                    <!-- More content... -->
+                </div>
+                
+                <!-- GHUSL SECTION (NEW) -->
+                <div id="ghusl" class="guide-content">
+                    <h3>Ghusl: The Ritual Bath in Islam</h3>
+                    
+                    <div class="prayer-step">
+                        <h4>What is Ghusl?</h4>
+                        <p>Ghusl (غُسْل) is the Islamic ritual washing of the entire body with water. It is an act of physical and spiritual purification that cleanses a Muslim from major ritual impurity (janaba), allowing them to perform acts of worship such as the daily prayers (salah) and touching or reciting the Quran.</p>
+                    </div>
+                    
+                    <h3>The Importance of Ghusl in Islam</h3>
+                    
+                    <p>Purification is a central concept in Islam, as Allah ﷻ says in the Quran:</p>
+                    
+                    <div class="hadith-quote">
+                        "...Truly, Allah loves those who turn unto Him in repentance and loves those who purify themselves."
+                        <div class="hadith-source">Surah Al-Baqarah (2:222)</div>
+                    </div>
+                    
+                    <p>The importance of Ghusl can be understood through several aspects:</p>
+                    
+                    <ol>
+                        <li><strong>Ritual Purity:</strong> Ghusl restores the state of ritual purity (taharah) required for various acts of worship.</li>
+                        <li><strong>Spiritual Cleansing:</strong> Beyond physical cleanliness, Ghusl represents spiritual purification and renewal.</li>
+                        <li><strong>Prerequisite for Worship:</strong> Certain acts of worship cannot be performed without first completing Ghusl when it is required.</li>
+                        <li><strong>Physical Hygiene:</strong> Regular bathing promotes good health and hygiene, which is emphasized in Islamic teachings.</li>
+                        <li><strong>Divine Command:</strong> Performing Ghusl is following Allah's command, as mentioned in the Quran.</li>
+                    </ol>
+                    
+                    <div class="hadith-quote">
+                        The Prophet Muhammad ﷺ said: "The key to Paradise is prayer, and the key to prayer is purification."
+                        <div class="hadith-source">Reported by Ahmad and At-Tirmidhi</div>
+                    </div>
+                    
+                    <h3>When is Ghusl Required?</h3>
+                    
+                    <div class="required-occasions">
+                        <div class="occasion-card">
+                            <h4>Obligatory (Fard) Occasions</h4>
+                            <ul>
+                                <li>After sexual intercourse</li>
+                                <li>After ejaculation (for men)</li>
+                                <li>After menstruation (for women)</li>
+                                <li>After childbirth/postpartum bleeding</li>
+                                <li>When a non-Muslim embraces Islam</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="occasion-card">
+                            <h4>Recommended (Sunnah) Occasions</h4>
+                            <ul>
+                                <li>Before Friday (Jumu'ah) prayer</li>
+                                <li>Before Eid prayers</li>
+                                <li>Before entering the state of Ihram for Hajj or Umrah</li>
+                                <li>After washing a deceased person</li>
+                                <li>After regaining consciousness</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>How to Perform Ghusl</h3>
+                    <p>The following steps outline the complete method of performing Ghusl according to the Sunnah:</p>
+                    
+                    <div style="counter-reset: ghusl-steps;">
+                        <div class="ghusl-step">
+                            <h4>Begin with the Intention (Niyyah)</h4>
+                            <p>Make the intention in your heart to perform Ghusl for purification. The Prophet ﷺ said: "Actions are judged by intentions."</p>
+                        </div>
+                        
+                        <div class="ghusl-step">
+                            <h4>Say "Bismillah" and Wash Both Hands</h4>
+                            <p>Begin by saying "Bismillah" (In the name of Allah) and wash both hands up to the wrists three times, making sure to clean between the fingers.</p>
+                        </div>
+                        
+                        <div class="ghusl-step">
+                            <h4>Wash the Private Parts</h4>
+                            <p>Wash the private parts thoroughly with the left hand, removing any impurities. Then wash the hand again.</p>
+                        </div>
+                        
+                        <div class="ghusl-step">
+                            <h4>Perform Complete Wudu</h4>
+                            <p>Perform a complete Wudu (ablution) as you would for prayer, but you may delay washing the feet until the end of Ghusl if you're bathing in a place where water collects.</p>
+                            
+                            <div class="prayer-tip">
+                                <h4>Tip:</h4>
+                                <p>If you're performing Ghusl in a shower or bath where water may accumulate, you can delay washing your feet until the end to ensure they remain clean.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ghusl-step">
+                            <h4>Wet the Hair and Pour Water Over the Head</h4>
+                            <p>Pour water over your head three times, ensuring that water reaches the roots of your hair. Make sure to thoroughly wet all of your hair.</p>
+                            
+                            <div class="prayer-tip">
+                                <h4>For Women:</h4>
+                                <p>It is not necessary to undo braids as long as water can reach the roots of the hair. The Prophet ﷺ told women they do not need to undo their braids for Ghusl, but should ensure water reaches the roots.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ghusl-step">
+                            <h4>Pour Water Over the Right Side of the Body</h4>
+                            <p>Pour water over the right shoulder and the right side of the body, ensuring that water reaches all parts, including difficult areas like armpits and between folds of skin.</p>
+                        </div>
+                        
+                        <div class="ghusl-step">
+                            <h4>Pour Water Over the Left Side of the Body</h4>
+                            <p>Pour water over the left shoulder and the left side of the body, ensuring that water reaches all parts.</p>
+                        </div>
+                        
+                        <div class="ghusl-step">
+                            <h4>Ensure Water Reaches All Parts of the Body</h4>
+                            <p>Make sure that no part of the body is left dry. Pay special attention to areas that are often missed, such as:</p>
+                            <ul>
+                                <li>Behind the ears</li>
+                                <li>Inside the belly button</li>
+                                <li>Between the toes</li>
+                                <li>Armpits</li>
+                                <li>Folds of skin</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="prayer-tip">
+                        <h4>Important Note:</h4>
+                        <p>The minimal obligatory requirement for a valid Ghusl is that water reaches every part of the body, including the hair. The steps outlined above represent the complete Sunnah method as practiced by the Prophet Muhammad ﷺ, but a person in a hurry can fulfill the obligation by ensuring water reaches every part of the body at least once.</p>
+                    </div>
+                    
+                    <h3>Common Questions About Ghusl</h3>
+                    
+                    <div class="collapsible-section">
+                        <div class="collapsible-header">Can I perform Ghusl in a shower?</div>
+                        <div class="collapsible-content">
+                            <p>Yes, Ghusl can be performed in a shower, bath, or with any clean water source. The important thing is that water reaches every part of the body.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-section">
+                        <div class="collapsible-header">How much water should be used for Ghusl?</div>
+                        <div class="collapsible-content">
+                            <p>There is no specific amount required. The Prophet ﷺ used approximately one sa' (an old measurement, roughly 3 liters) for Ghusl. Use enough water to ensure thorough cleansing while avoiding waste, as excessive use of water is discouraged in Islam even during purification.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-section">
+                        <div class="collapsible-header">Do I need to perform Wudu after Ghusl for prayer?</div>
+                        <div class="collapsible-content">
+                            <p>No, if you have performed Wudu during Ghusl, you do not need to perform it again for prayer. The state of Ghusl includes the state of Wudu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-section">
+                        <div class="collapsible-header">What if I miss a small area during Ghusl?</div>
+                        <div class="collapsible-content">
+                            <p>If you realize you missed an area after completing Ghusl, simply wash the missed area. You do not need to repeat the entire Ghusl.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF GHUSL SECTION -->
+                
+                <!-- Additional tabs content would follow here -->
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Bagotville Masjid. All rights reserved.</p>
+        <p>Lot 147 Public Road, Bagotville, West Bank Demerara, Guyana | +592-626-6780 | contactus@bagotvillemajid.org</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/profile.php?id=100081668231878" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="#" title="Coming soon">Twitter</a>
+            <a href="#" title="Coming soon">Instagram</a>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.guide-tab');
+            const contents = document.querySelectorAll('.guide-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to current tab and content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Collapsible sections
+            const collapsibles = document.querySelectorAll('.collapsible-header');
+            
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener('click', function() {
+                    this.parentElement.classList.toggle('active');
+                });
+            });
+            
+            // Handle anchor links
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                const tabButton = document.querySelector(`.guide-tab[data-tab="${hash}"]`);
+                if (tabButton) {
+                    tabButton.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
